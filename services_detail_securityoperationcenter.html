@@ -82,7 +82,7 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 .section-title { font-size: 26px; font-weight: 700; color: var(--txt); letter-spacing: -0.01em; }
 .diagram-wrap { position: relative; width: 100%; height: 580px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid var(--lbd); border-radius: var(--r); overflow: hidden; }
 .diagram-wrap::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(32,64,154,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(32,64,154,0.04) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
-.diagram { position: relative; width: 560px; height: 520px; }
+.diagram { position: relative; width: 700px; height: 520px; }
 .diagram-core { position: absolute; left: 50%; top: 50%; width: 200px; height: 200px; margin-left: -100px; margin-top: -100px; border-radius: 50%; background: linear-gradient(135deg, var(--pr), var(--prl)); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; box-shadow: 0 20px 60px rgba(32,64,154,0.32), 0 0 0 8px rgba(32,64,154,0.08); z-index: 5; }
 .diagram-core-tag { font-size: 10px; letter-spacing: 0.22em; color: rgba(255,255,255,0.6); font-weight: 600; margin-bottom: 8px; }
 .diagram-core-title { font-size: 17px; font-weight: 800; text-align: center; letter-spacing: -0.01em; line-height: 1.4; }
@@ -93,10 +93,10 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 .diagram-node:hover { transform: scale(1.04); box-shadow: 0 16px 50px rgba(79,142,247,0.45); }
 .diagram-node i { font-size: 28px; margin-bottom: 8px; opacity: 0.9; }
 .diagram-node-text { font-size: 13px; font-weight: 600; line-height: 1.5; word-break: keep-all; }
-.diagram-node.n1 { top: 20px; left: 80px; }
-.diagram-node.n2 { top: 20px; right: 80px; }
-.diagram-node.n3 { bottom: 20px; left: 80px; }
-.diagram-node.n4 { bottom: 20px; right: 80px; }
+.diagram-node.n1 { top: 20px; left: 40px; }
+.diagram-node.n2 { top: 20px; right: 40px; }
+.diagram-node.n3 { bottom: 20px; left: 40px; }
+.diagram-node.n4 { bottom: 20px; right: 40px; }
 .req-section { margin-bottom: 0; }
 .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .req-card { background: #fff; border: 1px solid var(--lbd); border-radius: var(--r); padding: 36px 36px 40px; position: relative; overflow: hidden; transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s; }
@@ -169,8 +169,8 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 <!-- NAV -->
 <header class="nav-wrap">
   <div class="nav-inner">
-    <!-- ★ 수정: href="index.html" → href="ver1_home.html" -->
-    <a href="ver1_home.html" class="nav-logo">CMT<span>.</span></a>
+    <!-- ★ 수정: href="index.html" → href="index.html" -->
+    <a href="index.html" class="nav-logo">CMT<span>.</span></a>
     <ul class="nav-menu">
       <li>
         <a href="#">회사소개</a>
@@ -200,7 +200,7 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
         <div class="mega-drop wide">
           <div class="mega-col">
             <div class="mega-col-title">보안관제</div>
-            <a href="ver1_index_services_securityoperationcenter.html" class="on">서비스소개</a>
+            <a href="services_detail_securityoperationcenter.html" class="on">서비스소개</a>
             <a href="#">서비스특징</a><a href="#">서비스방법</a><a href="#">제공서비스</a>
           </div>
           <div class="mega-col">
@@ -248,14 +248,9 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
     <div class="breadcrumb">
       <div class="breadcrumb-inner">
         <i class="ti ti-home"></i>
-        <!-- ★ 수정: href="index.html" → href="ver1_home.html" -->
-        <a href="ver1_home.html">HOME</a>
+        <a href="index.html">HOME</a>
         <span class="bc-sep">/</span>
-        <a href="#">서비스</a>
-        <span class="bc-sep">/</span>
-        <a href="ver1_index_services_securityoperationcenter.html">보안관제</a>
-        <span class="bc-sep">/</span>
-        <span class="bc-now">서비스소개</span>
+        <span class="bc-now">보안관제</span>
       </div>
     </div>
     <h1 class="sub-hero-title">보안관제</h1>
@@ -349,7 +344,7 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
           <div class="sidebar-card-icon"><i class="ti ti-bell"></i></div>
         </div>
         <nav class="sidebar-nav">
-          <a href="ver1_index_services_securityoperationcenter.html" class="sidebar-nav-item active">서비스소개 <i class="ti ti-chevron-right"></i></a>
+          <a href="services_detail_securityoperationcenter.html" class="sidebar-nav-item active">서비스소개 <i class="ti ti-chevron-right"></i></a>
           <a href="#" class="sidebar-nav-item">서비스특징 <i class="ti ti-chevron-right"></i></a>
           <a href="#" class="sidebar-nav-item">서비스방법 <i class="ti ti-chevron-right"></i></a>
           <a href="#" class="sidebar-nav-item">제공서비스 <i class="ti ti-chevron-right"></i></a>
