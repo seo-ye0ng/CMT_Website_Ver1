@@ -61,7 +61,7 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 .hero-illust svg { width: 100%; height: 100%; opacity: 0.92; }
 .hero-dim { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(90deg, rgba(8,14,31,0.92) 0%, rgba(8,14,31,0.78) 28%, rgba(8,14,31,0.55) 50%, rgba(8,14,31,0.18) 75%, rgba(8,14,31,0) 100%); }
 .hero-slide-tag { font-size: 15px; color: var(--ac); letter-spacing: 0.18em; font-weight: 600; margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
-.hero-title { font-size: 48px; font-weight: 900; line-height: 1.16; margin-bottom: 14px; word-break: keep-all; white-space: nowrap; }
+.hero-title { font-size: 48px; font-weight: 900; line-height: 1.16; margin-bottom: 14px; word-break: keep-all; }
 .hero-en { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.7); letter-spacing: 0.04em; margin-bottom: 28px; }
 .hero-desc { font-size: 18px; color: rgba(255,255,255,0.55); line-height: 1.9; font-weight: 300; max-width: 480px; word-break: keep-all; }
 .hero-cta { margin-top: 40px; display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: var(--prl); border: none; border-radius: var(--r); color: #fff; font-size: 18px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; font-family: 'Pretendard', sans-serif; cursor: pointer; align-self: flex-start; transition: background 0.2s, transform 0.2s; }
@@ -71,9 +71,9 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 /* ══ SERVICES ══ */
 .services-pinwrap { position: relative; height: 480vh; background: var(--lt); }
 .services { position: sticky; top: 68px; height: calc(100vh - 68px); background: var(--lt); padding: 48px 0; overflow: hidden; display: flex; flex-direction: column; border-bottom: 1px solid var(--lbd); }
-.sec-head { text-align: center; margin-bottom: 24px; }
+.sec-head { text-align: center; margin-bottom: 36px; }
 .sec-eyebrow { font-size: 15px; color: var(--pr); letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 14px; }
-.sec-title { font-size: 42px; font-weight: 700; color: var(--txt); }
+.sec-title { font-size: clamp(22px, 2vw, 30px); font-weight: 700; color: var(--txt); }
 .tab-nav { display: flex; justify-content: center; border-bottom: 1px solid var(--lbd); background: var(--lt); }
 .tab-btn { padding: 16px 36px; font-size: 18px; font-weight: 500; color: var(--mut); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; font-family: 'Pretendard', sans-serif; letter-spacing: 0.01em; transition: all 0.22s; white-space: nowrap; }
 .tab-btn.active { color: var(--pr); border-bottom-color: var(--pr); font-weight: 700; }
@@ -83,7 +83,7 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 .panel-wrap { display: grid; grid-template-columns: 1fr 1fr; width: 100%; flex: 1; min-height: 0; }
 .panel-left { padding: 32px var(--side); display: flex; flex-direction: column; justify-content: center; background: var(--lt); }
 .p-num { font-size: 15px; color: var(--pr); letter-spacing: 0.15em; font-weight: 700; margin-bottom: 16px; opacity: 0.65; }
-.p-title { font-size: 33px; font-weight: 900; line-height: 1.32; margin-bottom: 14px; color: var(--txt); word-break: keep-all; }
+.p-title { font-size: clamp(28px, 2.4vw, 38px); font-weight: 900; line-height: 1.32; margin-bottom: 14px; color: var(--txt); word-break: keep-all; }
 .p-desc { font-size: 15px; color: var(--mut); line-height: 1.8; font-weight: 400; margin-bottom: 20px; word-break: keep-all; max-width: 440px; }
 .p-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
 .feat { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--txt); opacity: 0.75; }
@@ -249,7 +249,7 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   <div class="hero-content">
     <div class="hero-left">
       <div class="hero-slide-tag">SECURITY EXCELLENCE</div>
-      <h1 class="hero-title">미래를 위한 준비</h1>
+      <h1 class="hero-title">미래를 위한<br>준비</h1>
       <div class="hero-en">Achieve Better, Faster Business Outcomes</div>
       <p class="hero-desc">씨엠티정보통신은 더 나은, 더 빠른 성과를 위해 네트워크, 시스템 통합 및 보안 시스템에 이르기까지 고객의 요구사항을 충족하는 다양한 제품과 솔루션을 제공하고 있습니다.</p>
       <a class="hero-cta" href="#" download><i class="ti ti-download"></i>회사소개서 다운로드</a>
