@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMT 씨엠티정보통신</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --pr: #20409A; --prl: #2d58d4; --prd: #162d70;
+  --bg: #080e1f; --bgn: #0d1a3a; --ac: #4f8ef7; --ac2: #00c6ff;
+  --wh: #ffffff; --gr: #94a3b8; --bd: rgba(79,142,247,0.18);
+  --r: 4px; --lt: #f4f6fb; --lt2: #eaf0fc; --txt: #0a1435;
+  --mut: #5a6a8a; --lbd: rgba(32,64,154,0.12);
+  --max: 1920px; --min: 1400px; --side: 80px;
+}
+
+html { font-size: 16px; }
+body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--wh); min-width: var(--min); overflow-x: hidden; }
+.inner { width: 100%; max-width: var(--max); min-width: var(--min); margin: 0 auto; padding: 0 var(--side); }
+
+/* ══ NAV ══ */
+.nav-wrap { position: sticky; top: 0; z-index: 500; background: rgba(8,14,31,0.97); border-bottom: 1px solid var(--bd); backdrop-filter: blur(14px); }
+.nav-inner { display: flex; align-items: center; height: 68px; max-width: var(--max); min-width: var(--min); margin: 0 auto; padding: 0 var(--side); }
+
+/* ★ 수정: text-decoration, cursor 추가 (div→a 태그 대응) */
+.nav-logo { font-size: 22px; font-weight: 800; letter-spacing: 0.06em; color: #fff; white-space: nowrap; flex-shrink: 0; margin-right: 48px; text-decoration: none; cursor: pointer; }
+.nav-logo span { color: var(--ac); }
+
+.nav-menu { display: flex; list-style: none; flex: 1; height: 68px; }
+.nav-menu > li { position: relative; height: 100%; }
+.nav-menu > li > a { display: flex; align-items: center; padding: 0 22px; height: 100%; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.72); text-decoration: none; letter-spacing: 0.02em; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; }
+.nav-menu > li:hover > a { color: #fff; border-bottom-color: var(--ac); }
+.mega-drop { display: none; position: absolute; top: 68px; left: 0; background: rgba(8,14,31,0.98); border: 1px solid var(--bd); border-top: none; min-width: 200px; padding: 20px 0; z-index: 600; backdrop-filter: blur(14px); }
+.mega-drop.wide { left: 50%; transform: translateX(-50%); display: none; flex-direction: row; gap: 0; min-width: 880px; padding: 28px 32px; }
+.nav-menu > li:hover .mega-drop { display: block; }
+.nav-menu > li:hover .mega-drop.wide { display: flex; }
+.mega-col { min-width: 150px; flex: 1; }
+.mega-col-title { font-size: 11px; font-weight: 700; color: var(--ac); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--bd); }
+.mega-drop a { display: block; padding: 8px 24px; font-size: 13px; color: rgba(255,255,255,0.62); text-decoration: none; transition: color 0.18s, background 0.18s; white-space: nowrap; }
+.mega-drop a:hover { color: #fff; background: rgba(79,142,247,0.07); }
+.mega-col a { padding: 7px 0; }
+.mega-col a:hover { color: var(--ac); background: none; }
+.nav-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; margin-left: 32px; }
+.lang-group { display: flex; align-items: center; gap: 6px; }
+.lang-btn { color: rgba(255,255,255,0.38); cursor: pointer; background: none; border: none; font-family: 'Pretendard', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; transition: color 0.2s; }
+.lang-btn.on { color: #fff; }
+.lang-sep { color: rgba(255,255,255,0.2); font-size: 12px; }
+
+/* ══ HERO ══ */
+.hero { position: relative; height: calc(100vh - 148px); min-height: 540px; max-height: 720px; background: linear-gradient(135deg, #080e1f 0%, #0d1a3a 55%, #0a1f50 100%); display: flex; align-items: center; overflow: hidden; }
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(79,142,247,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(79,142,247,0.045) 1px, transparent 1px); background-size: 72px 72px; pointer-events: none; }
+.hero-glow { position: absolute; right: -10%; top: -15%; width: 55%; height: 130%; border-radius: 50%; background: radial-gradient(ellipse, rgba(32,64,154,0.3) 0%, transparent 65%); pointer-events: none; }
+.hero-glow2 { position: absolute; left: 35%; bottom: -20%; width: 30%; height: 60%; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,198,255,0.055) 0%, transparent 65%); pointer-events: none; }
+.hero-content { position: relative; z-index: 3; max-width: var(--max); min-width: var(--min); margin: 0 auto; padding: 0 var(--side); width: 100%; }
+.hero-left { display: flex; flex-direction: column; justify-content: center; max-width: 720px; }
+.hero-illust { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; overflow: hidden; }
+.hero-illust svg { width: 100%; height: 100%; opacity: 0.92; }
+.hero-dim { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(90deg, rgba(8,14,31,0.92) 0%, rgba(8,14,31,0.78) 28%, rgba(8,14,31,0.55) 50%, rgba(8,14,31,0.18) 75%, rgba(8,14,31,0) 100%); }
+.hero-slide-tag { font-size: 12px; color: var(--ac); letter-spacing: 0.18em; font-weight: 600; margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
+.hero-title { font-size: clamp(48px, 4.5vw, 68px); font-weight: 900; line-height: 1.16; margin-bottom: 14px; word-break: keep-all; white-space: nowrap; }
+.hero-en { font-size: clamp(15px, 1.3vw, 20px); font-weight: 300; color: rgba(255,255,255,0.7); letter-spacing: 0.04em; margin-bottom: 28px; }
+.hero-desc { font-size: clamp(13px, 0.9vw, 14px); color: rgba(255,255,255,0.55); line-height: 1.9; font-weight: 300; max-width: 480px; word-break: keep-all; }
+.hero-cta { margin-top: 40px; display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: var(--prl); border: none; border-radius: var(--r); color: #fff; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; font-family: 'Pretendard', sans-serif; cursor: pointer; align-self: flex-start; transition: background 0.2s, transform 0.2s; }
+.hero-cta:hover { background: var(--ac); transform: translateY(-2px); }
+.hero-cta i { font-size: 18px; color: #fff; }
+
+/* ══ SERVICES ══ */
+.services-pinwrap { position: relative; height: 480vh; background: var(--lt); }
+.services { position: sticky; top: 68px; height: calc(100vh - 68px); background: var(--lt); padding: 48px 0; overflow: hidden; display: flex; flex-direction: column; border-bottom: 1px solid var(--lbd); }
+.sec-head { text-align: center; margin-bottom: 24px; }
+.sec-eyebrow { font-size: 11px; color: var(--pr); letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+.sec-title { font-size: clamp(22px, 2vw, 30px); font-weight: 700; color: var(--txt); }
+.tab-nav { display: flex; justify-content: center; border-bottom: 1px solid var(--lbd); background: var(--lt); }
+.tab-btn { padding: 16px 36px; font-size: 14px; font-weight: 500; color: var(--mut); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; font-family: 'Pretendard', sans-serif; letter-spacing: 0.01em; transition: all 0.22s; white-space: nowrap; }
+.tab-btn.active { color: var(--pr); border-bottom-color: var(--pr); font-weight: 700; }
+.tab-btn:hover:not(.active) { color: var(--txt); }
+.tab-panel { display: none; }
+.tab-panel.active { display: flex; flex: 1; min-height: 0; }
+.panel-wrap { display: grid; grid-template-columns: 1fr 1fr; width: 100%; flex: 1; min-height: 0; }
+.panel-left { padding: 32px var(--side); display: flex; flex-direction: column; justify-content: center; background: var(--lt); }
+.p-num { font-size: 11px; color: var(--pr); letter-spacing: 0.15em; font-weight: 700; margin-bottom: 16px; opacity: 0.65; }
+.p-title { font-size: clamp(28px, 2.4vw, 38px); font-weight: 900; line-height: 1.32; margin-bottom: 14px; color: var(--txt); word-break: keep-all; }
+.p-desc { font-size: 15px; color: var(--mut); line-height: 1.8; font-weight: 400; margin-bottom: 20px; word-break: keep-all; max-width: 440px; }
+.p-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.feat { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--txt); opacity: 0.75; }
+.feat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--pr); flex-shrink: 0; }
+.p-link { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--pr); text-decoration: none; cursor: pointer; transition: gap 0.2s; border: none; background: none; font-family: 'Pretendard', sans-serif; }
+.p-link:hover { gap: 16px; }
+.p-action { display: flex; align-items: center; gap: 24px; }
+.panel-right { position: relative; overflow: hidden; background: linear-gradient(135deg, #e4ecf8 0%, #d6e2f4 40%, #c8d6ef 100%); display: flex; align-items: center; justify-content: center; border-left: 1px solid var(--lbd); }
+.panel-illust { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ══ PARTNERS ══ */
+.partners { background: var(--lt); padding: 80px 0; overflow: hidden; }
+.partners-head { padding: 0 var(--side); margin-bottom: 48px; }
+.partners-label { font-size: 11px; color: var(--pr); letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+.partners-title { font-size: clamp(22px, 2vw, 30px); font-weight: 700; color: var(--txt); margin-bottom: 8px; }
+.marquee-container { display: flex; flex-direction: column; gap: 16px; overflow: hidden; }
+.marquee-row { display: flex; gap: 16px; width: max-content; }
+.marquee-row.left { animation: scrollLeft 30s linear infinite; }
+.marquee-row.right { animation: scrollRight 30s linear infinite; }
+.marquee-row:hover { animation-play-state: paused; }
+@keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes scrollRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+.logo-card { display: flex; align-items: center; justify-content: center; width: 200px; height: 88px; background: #ffffff; border: 1px solid rgba(32,64,154,0.1); border-radius: 8px; flex-shrink: 0; transition: box-shadow 0.2s, border-color 0.2s; }
+.logo-card:hover { box-shadow: 0 4px 20px rgba(32,64,154,0.1); border-color: rgba(32,64,154,0.25); }
+.logo-text { font-weight: 800; font-size: 16px; letter-spacing: 0.04em; color: var(--txt); }
+.logo-text.blue { color: #0052cc; } .logo-text.red { color: #c0392b; } .logo-text.green { color: #27ae60; }
+.logo-text.orange { color: #e67e22; } .logo-text.purple { color: #8e44ad; } .logo-text.teal { color: #16a085; } .logo-text.navy { color: #2c3e7a; }
+
+/* ══ CTA ══ */
+.cta { background: linear-gradient(135deg, var(--prd) 0%, #0d1a3a 55%, var(--bg) 100%); border-top: 1px solid rgba(32,64,154,0.35); }
+.cta-inner { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 56px; padding-top: 80px; padding-bottom: 80px; }
+.cta-title { font-size: clamp(22px, 1.8vw, 30px); font-weight: 700; margin-bottom: 12px; word-break: keep-all; }
+.cta-sub { font-size: 15px; color: rgba(255,255,255,0.48); font-weight: 300; word-break: keep-all; }
+.cta-btns { display: flex; gap: 14px; flex-shrink: 0; }
+.btn-solid { padding: 14px 30px; background: var(--prl); color: #fff; border: none; border-radius: var(--r); font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'Pretendard', sans-serif; letter-spacing: 0.02em; white-space: nowrap; transition: background 0.2s; }
+.btn-solid:hover { background: var(--ac); }
+.btn-outline { padding: 13px 30px; background: transparent; color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.22); border-radius: var(--r); font-size: 14px; cursor: pointer; font-family: 'Pretendard', sans-serif; letter-spacing: 0.02em; white-space: nowrap; transition: all 0.2s; }
+.btn-outline:hover { border-color: var(--ac); color: var(--ac); }
+
+/* ══ FOOTER ══ */
+.footer { background: #0a0f1e; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-top { padding: 48px var(--side) 32px; display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 48px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.footer-brand .f-logo { font-size: 20px; font-weight: 800; letter-spacing: 0.06em; color: #fff; margin-bottom: 12px; }
+.footer-brand .f-logo span { color: var(--ac); }
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 400px; }
+.footer-info { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 2; text-align: right; }
+.footer-info strong { color: rgba(255,255,255,0.5); }
+.footer-bottom { padding: 20px var(--side); display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.22); letter-spacing: 0.03em; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 12px; color: rgba(255,255,255,0.35); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
+.footer-links a:hover { color: var(--ac); }
+
+@media (max-width: 1600px) { :root { --side: 60px; } .nav-menu > li > a { padding: 0 16px; } .tab-btn { padding: 16px 24px; } }
+@media (max-width: 1400px) { :root { --side: 40px; } .nav-menu > li > a { padding: 0 13px; font-size: 13px; } .tab-btn { padding: 14px 18px; font-size: 13px; } .panel-left { padding: 24px var(--side); } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav-wrap">
+  <div class="nav-inner">
+    <!-- ★ 수정: div → a 태그, 로고 클릭 시 홈(ver1_home.html)으로 이동 -->
+    <a href="ver1_home.html" class="nav-logo">CMT<span>.</span></a>
+    <ul class="nav-menu">
+      <li>
+        <a href="#">회사소개</a>
+        <div class="mega-drop">
+          <a href="#">회사개요</a><a href="#">회사연혁</a><a href="#">CI</a><a href="#">인력채용</a><a href="#">찾아오시는 길</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">보안솔루션</a>
+        <div class="mega-drop wide">
+          <div class="mega-col">
+            <div class="mega-col-title">네트워크 보안</div>
+            <a href="#">Fortinet</a><a href="#">Juniper</a><a href="#">Radware</a><a href="#">Arbor</a><a href="#">F5 Networks</a><a href="#">Tippingpoint</a>
+          </div>
+          <div class="mega-col"><div class="mega-col-title">엔드포인트 보안</div><a href="#">Symantec</a><a href="#">Rapid7</a></div>
+          <div class="mega-col"><div class="mega-col-title">보안 솔루션</div><a href="#">IT 보안솔루션</a><a href="#">OT 보안솔루션</a></div>
+        </div>
+      </li>
+      <li>
+        <a href="#">신사업</a>
+        <div class="mega-drop">
+          <a href="#">신사업 소개</a><a href="#">AI 솔루션</a><a href="#">Bigdata 솔루션</a><a href="#">Cloud 솔루션</a><a href="#">IT 보안솔루션</a><a href="#">OT 보안솔루션</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">서비스</a>
+        <div class="mega-drop wide">
+          <div class="mega-col">
+            <div class="mega-col-title">보안관제</div>
+            <!-- ★ 수정: 서비스소개 → 상세 페이지(ver1_index_services_securityoperationcenter.html)로 이동 -->
+            <a href="ver1_index_services_securityoperationcenter.html">서비스소개</a>
+            <a href="#">서비스특징</a><a href="#">서비스방법</a><a href="#">제공서비스</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">보안컨설팅</div>
+            <a href="#">서비스 종류</a><a href="#">컨설팅 수행절차</a><a href="#">기술 취약점 진단</a><a href="#">모의해킹</a><a href="#">모바일 모의해킹</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">클라우드 서비스</div>
+            <a href="#">서비스 소개</a><a href="#">컨설팅 서비스</a><a href="#">마이그레이션</a><a href="#">매니지드 서비스</a><a href="#">최적화 서비스</a><a href="#">보안 서비스</a><a href="#">주요 고객사</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">보안SI</div>
+            <a href="#">서비스소개</a><a href="#">서비스특징</a><a href="#">서비스분야</a><a href="#">서비스방법론</a><a href="#">서비스기대효과</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">통합유지보수</div>
+            <a href="#">서비스소개</a><a href="#">서비스특징</a><a href="#">서비스방법론</a><a href="#">서비스기대효과</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">AICC</div>
+            <a href="#">AICC 소개</a><a href="#">SBC 솔루션</a><a href="#">Genesys Cloud</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="#">성공사례</a>
+        <div class="mega-drop"><a href="#">고객 레퍼런스</a><a href="#">산업별 사례</a><a href="#">솔루션별 사례</a></div>
+      </li>
+      <li>
+        <a href="#">고객지원</a>
+        <div class="mega-drop"><a href="#">상담 요청</a><a href="#">공지사항</a><a href="#">FAQ</a><a href="#">자료실</a><a href="#">1:1 문의</a></div>
+      </li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-group">
+        <button class="lang-btn on">KOR</button><span class="lang-sep">|</span><button class="lang-btn">ENG</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-illust">
+    <svg viewBox="0 0 1600 800" xmlns="http://www.w3.org/2000/svg" id="hero-svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="glow1" cx="45%" cy="30%" r="40%"><stop offset="0%" stop-color="#00c6ff" stop-opacity="0.9"/><stop offset="100%" stop-color="#00c6ff" stop-opacity="0"/></radialGradient>
+        <radialGradient id="glow2" cx="70%" cy="70%" r="35%"><stop offset="0%" stop-color="#4f8ef7" stop-opacity="0.7"/><stop offset="100%" stop-color="#4f8ef7" stop-opacity="0"/></radialGradient>
+        <radialGradient id="glow3" cx="20%" cy="65%" r="30%"><stop offset="0%" stop-color="#00c6ff" stop-opacity="0.5"/><stop offset="100%" stop-color="#00c6ff" stop-opacity="0"/></radialGradient>
+        <filter id="blur-soft"><feGaussianBlur stdDeviation="2.5"/></filter>
+        <filter id="blur-strong"><feGaussianBlur stdDeviation="8"/></filter>
+        <clipPath id="svgclip"><rect width="1600" height="800"/></clipPath>
+      </defs>
+      <g clip-path="url(#svgclip)">
+        <ellipse cx="900" cy="220" rx="320" ry="180" fill="url(#glow1)" filter="url(#blur-strong)" opacity="0.6"/>
+        <ellipse cx="1200" cy="560" rx="260" ry="160" fill="url(#glow2)" filter="url(#blur-strong)" opacity="0.5"/>
+        <ellipse cx="350" cy="500" rx="220" ry="140" fill="url(#glow3)" filter="url(#blur-strong)" opacity="0.4"/>
+        <g id="hex-layer"></g>
+        <g id="wave-lines" opacity="0.55"></g>
+        <g id="node-dots"></g>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-dim"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-slide-tag">SECURITY EXCELLENCE</div>
+      <h1 class="hero-title">미래를 위한 준비</h1>
+      <div class="hero-en">Achieve Better, Faster Business Outcomes</div>
+      <p class="hero-desc">씨엠티정보통신은 더 나은, 더 빠른 성과를 위해 네트워크, 시스템 통합 및 보안 시스템에 이르기까지 고객의 요구사항을 충족하는 다양한 제품과 솔루션을 제공하고 있습니다.</p>
+      <a class="hero-cta" href="#" download><i class="ti ti-download"></i>회사소개서 다운로드</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div class="services-pinwrap">
+<section class="services">
+  <div class="inner">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Core Services</div>
+      <div class="sec-title">시장을 선도하는 통합 보안 서비스</div>
+    </div>
+  </div>
+  <div class="tab-nav" role="tablist">
+    <button class="tab-btn active" onclick="scrollToTab(0)">보안관제</button>
+    <button class="tab-btn" onclick="scrollToTab(1)">클라우드</button>
+    <button class="tab-btn" onclick="scrollToTab(2)">보안SI</button>
+    <button class="tab-btn" onclick="scrollToTab(3)">통합유지보수</button>
+    <button class="tab-btn" onclick="scrollToTab(4)">보안컨설팅</button>
+  </div>
+
+  <!-- 보안관제 -->
+  <div class="tab-panel active" id="panel-0">
+    <div class="panel-wrap">
+      <div class="panel-left">
+        <div class="p-num">01 · SECURITY OPERATION CENTER</div>
+        <h2 class="p-title">365일 24시간,<br>위협 없는 환경을 실현합니다</h2>
+        <p class="p-desc">전문 보안 인력이 실시간 위협 탐지 및 즉각적인 대응 체계를 통해 기업의 디지털 자산을 24시간 보호합니다. 연중무휴 모니터링으로 보안 공백을 원천 차단합니다.</p>
+        <div class="p-features">
+          <div class="feat"><span class="feat-dot"></span>실시간 보안 이벤트 모니터링 및 분석</div>
+          <div class="feat"><span class="feat-dot"></span>침해사고 탐지·대응 및 복구 지원</div>
+          <div class="feat"><span class="feat-dot"></span>보안 취약점 주기적 점검 및 리포팅</div>
+        </div>
+        <!-- ★ 수정: button → a 태그, 상세 페이지 링크 연결 -->
+        <a href="ver1_index_services_securityoperationcenter.html" class="p-link">자세히 보기 <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="panel-right">
+        <img class="panel-illust" src="보안.png" alt="보안관제">
+      </div>
+    </div>
+  </div>
+
+  <!-- 클라우드 -->
+  <div class="tab-panel" id="panel-1">
+    <div class="panel-wrap">
+      <div class="panel-left">
+        <div class="p-num">02 · CLOUD</div>
+        <h2 class="p-title">AWS 인증 파트너<br>클라우드 통합 컨설팅 서비스</h2>
+        <p class="p-desc">Lorem ipsum dolor sit amet consectetur. Non varius leo sollicitudin tellus quam ipsum pulvinar non. Faucibus enim id duis diam suspendisse malesuada tortor.</p>
+        <div class="p-features">
+          <div class="feat"><span class="feat-dot"></span>Lorem ipsum dolor sit amet consectetur.</div>
+          <div class="feat"><span class="feat-dot"></span>Lorem ipsum dolor sit amet consectetur.</div>
+          <div class="feat"><span class="feat-dot"></span>Lorem ipsum dolor sit amet consectetur.</div>
+        </div>
+        <div class="p-action">
+          <button class="btn-solid">서비스 문의하기</button>
+          <button class="p-link">자세히 보기 <i class="ti ti-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="panel-right"><img class="panel-illust" src="클라우드.png" alt="클라우드"></div>
+    </div>
+  </div>
+
+  <!-- 보안SI -->
+  <div class="tab-panel" id="panel-2">
+    <div class="panel-wrap">
+      <div class="panel-left">
+        <div class="p-num">03 · SECURITY SYSTEM INTEGRATION</div>
+        <h2 class="p-title">체계적인 설계로<br>통합 보안 시스템을 구축합니다</h2>
+        <p class="p-desc">보안 아키텍처 설계부터 구현, 운영까지 전 단계를 아우르는 보안 SI 서비스로 기업의 보안 체계를 완성합니다. 최적의 정보보호 솔루션으로 통합 보안을 실현합니다.</p>
+        <div class="p-features">
+          <div class="feat"><span class="feat-dot"></span>보안 인프라 아키텍처 설계 및 구축</div>
+          <div class="feat"><span class="feat-dot"></span>보안 시스템 통합 구성 및 최적화</div>
+          <div class="feat"><span class="feat-dot"></span>프로젝트 기반 보안 솔루션 구현</div>
+        </div>
+        <button class="p-link">자세히 보기 <i class="ti ti-arrow-right"></i></button>
+      </div>
+      <div class="panel-right"><img class="panel-illust" src="큐브.png" alt="보안SI"></div>
+    </div>
+  </div>
+
+  <!-- 통합유지보수 -->
+  <div class="tab-panel" id="panel-3">
+    <div class="panel-wrap">
+      <div class="panel-left">
+        <div class="p-num">04 · UNIFIED MAINTENANCE</div>
+        <h2 class="p-title">무중단 IT 환경,<br>통합유지보수로 완성합니다</h2>
+        <p class="p-desc">365일 24시간 무중단 IT 서비스 제공으로 시스템 안정성을 극대화합니다. 하드웨어, 소프트웨어, 네트워크 전 영역을 아우르는 통합 유지보수 체계를 제공합니다.</p>
+        <div class="p-features">
+          <div class="feat"><span class="feat-dot"></span>24시간 장애 모니터링 및 즉시 대응</div>
+          <div class="feat"><span class="feat-dot"></span>정기 점검 및 예방 유지보수 수행</div>
+          <div class="feat"><span class="feat-dot"></span>H/W·S/W·네트워크 통합 관리</div>
+        </div>
+        <button class="p-link">자세히 보기 <i class="ti ti-arrow-right"></i></button>
+      </div>
+      <div class="panel-right"><img class="panel-illust" src="톱니바퀴.png" alt="통합유지보수"></div>
+    </div>
+  </div>
+
+  <!-- 보안컨설팅 -->
+  <div class="tab-panel" id="panel-4">
+    <div class="panel-wrap">
+      <div class="panel-left">
+        <div class="p-num">05 · SECURITY CONSULTING</div>
+        <h2 class="p-title">인증·컴플라이언스,<br>전문 컨설팅으로 선제 대응합니다</h2>
+        <p class="p-desc">ISMS-P, ISO 27001, 개인정보보호법 등 각종 인증 및 컴플라이언스 대응부터 취약점 진단까지, 고객 환경에 맞춤화된 보안 컨설팅 서비스를 제공합니다.</p>
+        <div class="p-features">
+          <div class="feat"><span class="feat-dot"></span>ISMS-P·ISO 27001 인증 취득 지원</div>
+          <div class="feat"><span class="feat-dot"></span>개인정보보호 및 컴플라이언스 진단</div>
+          <div class="feat"><span class="feat-dot"></span>모의해킹 및 취약점 종합 진단</div>
+        </div>
+        <button class="p-link">자세히 보기 <i class="ti ti-arrow-right"></i></button>
+      </div>
+      <div class="panel-right"><img class="panel-illust" src="다큐먼트.png" alt="보안컨설팅"></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- PARTNERS -->
+<section class="partners">
+  <div class="partners-head">
+    <div class="partners-label">Partnership</div>
+    <div class="partners-title">함께하는 글로벌 파트너사</div>
+  </div>
+  <div class="marquee-container">
+    <div class="marquee-row left" id="row1"></div>
+    <div class="marquee-row right" id="row2"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="inner">
+    <div class="cta-inner">
+      <div>
+        <div class="cta-title">보안, 더 이상 선택이 아닙니다</div>
+        <p class="cta-sub">씨엠티정보통신의 전문 보안 팀이 귀사의 디지털 자산을 24시간 지킵니다. 지금 바로 무료 보안 진단을 신청하세요.</p>
+      </div>
+      <div class="cta-btns">
+        <button class="btn-solid">무료 보안 진단 신청</button>
+        <button class="btn-outline">도입 문의</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="f-logo">CMT<span>.</span></div>
+      <p>씨엠티정보통신은 네트워크, 시스템 통합 및 보안 시스템 전문기업으로<br>고객의 디지털 자산을 안전하게 보호합니다.</p>
+    </div>
+    <div class="footer-info">
+      <div>(04798) 서울시 성동구 성수이로22길 37, 803호(성수동2가, 아크밸리)</div>
+      <div><strong>Tel</strong> 02-6011-1377 &nbsp;|&nbsp; <strong>Fax</strong> 02-463-1376</div>
+      <div><strong>E-mail</strong> adm@cmtinfo.co.kr &nbsp;|&nbsp; <strong>사업자번호</strong> 215-87-14581</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">COPYRIGHT © CMT정보통신 ALL RIGHTS RESERVED.</div>
+    <div class="footer-links">
+      <a href="#">이용약관 및 법적고지</a><a href="#">개인정보 처리방침</a><a href="#">회사소개</a><a href="#">채용정보</a><a href="#">환경경영방침</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function switchTab(idx) {
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+  document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+}
+const NAV_H=68, TAB_COUNT=5;
+let currentTab=0;
+function updateScrollTabs() {
+  const pinwrap=document.querySelector('.services-pinwrap');
+  if(!pinwrap)return;
+  const rect=pinwrap.getBoundingClientRect(), winH=window.innerHeight;
+  const stickyH=winH-NAV_H, wrapperH=pinwrap.offsetHeight;
+  const totalScrollable=wrapperH-stickyH, scrolled=NAV_H-rect.top;
+  let progress=Math.max(0,Math.min(1,scrolled/totalScrollable));
+  let idx=Math.min(Math.floor(progress*TAB_COUNT),TAB_COUNT-1);
+  if(currentTab!==idx){currentTab=idx;switchTab(idx);}
+}
+function scrollToTab(idx) {
+  const pinwrap=document.querySelector('.services-pinwrap');
+  if(!pinwrap)return;
+  const stickyH=window.innerHeight-NAV_H, totalScrollable=pinwrap.offsetHeight-stickyH;
+  const targetY=pinwrap.offsetTop-NAV_H+(totalScrollable*((idx+0.5)/TAB_COUNT));
+  window.scrollTo({top:targetY,behavior:'smooth'});
+}
+window.addEventListener('scroll',updateScrollTabs,{passive:true});
+window.addEventListener('resize',updateScrollTabs);
+updateScrollTabs();
+
+(function(){
+  const ns='http://www.w3.org/2000/svg', HEX_R=22, W=1600, H=800;
+  function waveY(x,z){const a1=70+z*50,a2=35+z*25,f1=(2*Math.PI)/420,f2=(2*Math.PI)/210;return a1*Math.sin(x*f1+0.6)+a2*Math.sin(x*f2+1.2);}
+  function hexPoints(cx,cy,r){const pts=[];for(let i=0;i<6;i++){const a=Math.PI/180*(60*i+30);pts.push([cx+r*Math.cos(a),cy+r*Math.sin(a)]);}return pts;}
+  const cols=Math.ceil(W/(HEX_R*0.45*1.75))+4, rows=22;
+  const hexLayer=document.getElementById('hex-layer'), waveLines=document.getElementById('wave-lines'), nodeDots=document.getElementById('node-dots');
+  for(let row=0;row<rows;row++){
+    const zFrac=row/(rows-1), yBase=-30+row*(H/rows), scale=0.45+zFrac*0.55, r=HEX_R*scale;
+    const hSpacing=r*1.75, opacity=0.08+zFrac*0.35, strokeW=0.4+zFrac*0.8;
+    for(let col=-1;col<cols;col++){
+      const xBase=col*hSpacing+(row%2===0?0:hSpacing*0.5), dy=waveY(xBase,zFrac)*0.55;
+      const cx=xBase+10, cy=yBase+dy;
+      if(cx<-r*2||cx>W+r*2)continue;
+      const poly=document.createElementNS(ns,'polygon');
+      poly.setAttribute('points',hexPoints(cx,cy,r).map(p=>p.join(',')).join(' '));
+      const d1=Math.hypot(cx-900,cy-220), d2=Math.hypot(cx-1200,cy-560);
+      if(d1<220||d2<180){poly.setAttribute('fill','rgba(0,198,255,0.07)');poly.setAttribute('stroke',`rgba(0,198,255,${opacity*1.6})`);}
+      else{poly.setAttribute('fill','rgba(32,64,154,0.04)');poly.setAttribute('stroke',`rgba(79,142,247,${opacity})`);}
+      poly.setAttribute('stroke-width',strokeW);
+      hexLayer.appendChild(poly);
+    }
+  }
+  [5,10,15].forEach((tRow,ri)=>{
+    const zFrac=tRow/(rows-1),yBase=-30+tRow*(H/rows),scale=0.45+zFrac*0.55,r=HEX_R*scale,hSpacing=r*1.75;
+    const pts=[];
+    for(let col=-1;col<cols+1;col++){const xBase=col*hSpacing+(tRow%2===0?0:hSpacing*0.5);pts.push([xBase+10,yBase+waveY(xBase,zFrac)*0.55]);}
+    const colors=['rgba(0,198,255,0.55)','rgba(79,142,247,0.4)','rgba(0,198,255,0.35)'],widths=[1.2,0.9,0.7];
+    const gp=document.createElementNS(ns,'polyline');
+    gp.setAttribute('points',pts.map(p=>p.join(',')).join(' '));gp.setAttribute('fill','none');
+    gp.setAttribute('stroke',colors[ri]);gp.setAttribute('stroke-width',widths[ri]*4);gp.setAttribute('stroke-linecap','round');gp.setAttribute('opacity','0.15');gp.setAttribute('filter','url(#blur-soft)');
+    waveLines.appendChild(gp);
+    const p=document.createElementNS(ns,'polyline');
+    p.setAttribute('points',pts.map(p=>p.join(',')).join(' '));p.setAttribute('fill','none');
+    p.setAttribute('stroke',colors[ri]);p.setAttribute('stroke-width',widths[ri]);p.setAttribute('stroke-linecap','round');
+    waveLines.appendChild(p);
+  });
+  [{x:850,y:180},{x:950,y:230},{x:800,y:270},{x:1180,y:520},{x:1240,y:570},{x:1130,y:610},{x:340,y:480},{x:400,y:530},{x:1060,y:380},{x:1120,y:340},{x:600,y:340},{x:550,y:410}].forEach(({x,y})=>{
+    const ring=document.createElementNS(ns,'circle');ring.setAttribute('cx',x);ring.setAttribute('cy',y);ring.setAttribute('r',8);ring.setAttribute('fill','rgba(0,198,255,0.12)');ring.setAttribute('stroke','rgba(0,198,255,0.5)');ring.setAttribute('stroke-width','0.8');nodeDots.appendChild(ring);
+    const dot=document.createElementNS(ns,'circle');dot.setAttribute('cx',x);dot.setAttribute('cy',y);dot.setAttribute('r',2.5);dot.setAttribute('fill','#00c6ff');dot.setAttribute('filter','url(#blur-soft)');nodeDots.appendChild(dot);
+    const dot2=document.createElementNS(ns,'circle');dot2.setAttribute('cx',x);dot2.setAttribute('cy',y);dot2.setAttribute('r',1.8);dot2.setAttribute('fill','#ffffff');nodeDots.appendChild(dot2);
+  });
+  const style=document.createElement('style');
+  style.textContent=`#node-dots circle[r="8"]{animation:hexPulse 3s ease-in-out infinite;}#node-dots circle[r="8"]:nth-child(3n+1){animation-delay:0s;}#node-dots circle[r="8"]:nth-child(3n+2){animation-delay:1s;}#node-dots circle[r="8"]:nth-child(3n+3){animation-delay:2s;}@keyframes hexPulse{0%,100%{r:8;opacity:0.7;}50%{r:13;opacity:0.3;}}`;
+  document.head.appendChild(style);
+})();
+
+const row1Logos=[{name:'Fortinet',color:'red'},{name:'Juniper',color:'blue'},{name:'Radware',color:'navy'},{name:'Symantec',color:'orange'},{name:'Rapid7',color:'red'},{name:'Arbor',color:'green'},{name:'F5 Networks',color:'navy'},{name:'Tippingpoint',color:'blue'},{name:'Palo Alto',color:'orange'},{name:'CrowdStrike',color:'red'}];
+const row2Logos=[{name:'Veeam',color:'green'},{name:'RSA Security',color:'red'},{name:'Procer',color:'blue'},{name:'Check Point',color:'purple'},{name:'Trend Micro',color:'red'},{name:'McAfee',color:'navy'},{name:'SentinelOne',color:'blue'},{name:'Darktrace',color:'purple'},{name:'Tenable',color:'teal'},{name:'Qualys',color:'orange'}];
+function buildRow(logos,rowId){const row=document.getElementById(rowId);[...logos,...logos].forEach(logo=>{const card=document.createElement('div');card.className='logo-card';card.innerHTML=`<span class="logo-text ${logo.color}">${logo.name}</span>`;row.appendChild(card);});}
+buildRow(row1Logos,'row1');buildRow(row2Logos,'row2');
+</script>
+</body>
+</html>
