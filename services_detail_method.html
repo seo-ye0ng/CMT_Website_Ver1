@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CMT 씨엠티정보통신 | 보안관제 - 서비스소개</title>
+<title>CMT 씨엠티정보통신 | 보안관제 - 서비스 방법</title>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 <style>
@@ -163,6 +163,27 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 
 @media (max-width: 1600px) { :root { --side: 60px; } .nav-menu > li > a { padding: 0 16px; } }
 @media (max-width: 1400px) { :root { --side: 40px; } .nav-menu > li > a { padding: 0 13px; font-size: 15px; } .page-grid { grid-template-columns: 1fr 260px; gap: 40px; } }
+
+.process-wrap { background:#fff; border:1px solid var(--lbd); border-radius:var(--r); padding:40px 36px; margin-bottom:36px; }
+.process-steps { display:grid; grid-template-columns:repeat(6,1fr); gap:4px; margin-bottom:36px; }
+.proc-step { background:var(--lt2); border:1px solid var(--lbd); border-radius:var(--r); padding:18px 14px; text-align:center; transition:all .2s; }
+.proc-step.active { background:var(--pr); border-color:var(--pr); color:#fff; box-shadow:0 8px 24px rgba(32,64,154,0.25); }
+.proc-step-num { font-size:11px; font-weight:700; color:var(--pr); letter-spacing:.12em; margin-bottom:8px; }
+.proc-step.active .proc-step-num { color:rgba(255,255,255,.6); }
+.proc-step-label { font-size:14px; font-weight:600; color:var(--txt); line-height:1.4; word-break:keep-all; }
+.proc-step.active .proc-step-label { color:#fff; }
+.proc-divider { display:grid; grid-template-columns:1fr 1fr; gap:4px; margin-bottom:4px; }
+.proc-divider-cell { background:var(--lt); border:1px solid var(--lbd); border-radius:var(--r); padding:14px 18px; font-size:14px; font-weight:600; color:var(--txt); text-align:center; }
+.proc-divider-cell.wide { grid-column:span 2; }
+.proc-matrix { display:grid; grid-template-columns:auto 1fr 1fr 1fr; border:1px solid var(--lbd); border-radius:var(--r); overflow:hidden; }
+.pm-cell { padding:18px 16px; border-bottom:1px solid var(--lbd); border-right:1px solid var(--lbd); font-size:14px; line-height:1.65; word-break:keep-all; }
+.pm-cell:last-child, .pm-row:last-child .pm-cell { border-bottom:none; }
+.pm-cell.header { background:var(--pr); color:#fff; font-weight:700; font-size:13px; text-align:center; }
+.pm-cell.label { background:var(--lt); font-weight:700; color:var(--txt); font-size:13px; text-align:center; writing-mode:horizontal-tb; display:flex; align-items:center; justify-content:center; }
+.pm-cell.bg-light { background:#fafbff; color:var(--mut); }
+.pm-cell ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:4px; }
+.pm-cell li::before { content:"- "; color:var(--pr); font-weight:600; }
+
 </style>
 </head>
 <body>
@@ -226,30 +247,17 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 
 <!-- SUB HERO -->
 <section class="sub-hero">
-  <div class="sub-hero-grid"></div>
-  <div class="sub-hero-glow"></div>
-  <div class="sub-hero-glow2"></div>
+  <div class="sub-hero-grid"></div><div class="sub-hero-glow"></div><div class="sub-hero-glow2"></div>
   <div class="sub-hero-illust">
     <svg viewBox="0 0 1600 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <radialGradient id="sh-glow1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00c6ff" stop-opacity="0.5"/><stop offset="100%" stop-color="#00c6ff" stop-opacity="0"/></radialGradient>
-        <filter id="sh-blur"><feGaussianBlur stdDeviation="6"/></filter>
-      </defs>
+      <defs><radialGradient id="sh-glow1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00c6ff" stop-opacity="0.5"/><stop offset="100%" stop-color="#00c6ff" stop-opacity="0"/></radialGradient><filter id="sh-blur"><feGaussianBlur stdDeviation="6"/></filter></defs>
       <ellipse cx="1100" cy="160" rx="280" ry="120" fill="url(#sh-glow1)" filter="url(#sh-blur)" opacity="0.6"/>
-      <g id="sh-hex" stroke="rgba(79,142,247,0.16)" stroke-width="0.6" fill="rgba(32,64,154,0.04)"></g>
-      <g id="sh-nodes"></g>
+      <g id="sh-hex" stroke="rgba(79,142,247,0.16)" stroke-width="0.6" fill="rgba(32,64,154,0.04)"></g><g id="sh-nodes"></g>
     </svg>
   </div>
   <div class="sub-hero-dim"></div>
   <div class="sub-hero-content">
-    <div class="breadcrumb">
-      <div class="breadcrumb-inner">
-        <i class="ti ti-home"></i>
-        <a href="index.html">HOME</a>
-        <span class="bc-sep">/</span>
-        <span class="bc-now">보안관제</span>
-      </div>
-    </div>
+    <div class="breadcrumb"><div class="breadcrumb-inner"><i class="ti ti-home"></i><a href="index.html">HOME</a><span class="bc-sep">/</span><span class="bc-now">보안관제</span></div></div>
     <h1 class="sub-hero-title">보안관제</h1>
     <div class="sub-hero-en">365일 24시간 실시간 위협 탐지·대응 서비스</div>
   </div>
@@ -259,116 +267,60 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 <section class="page-wrap">
   <div class="inner">
     <div class="page-grid">
-
-      <!-- MAIN -->
       <div class="page-main">
         <div class="intro-section">
-          <div class="intro-eyebrow">SERVICE OVERVIEW</div>
-          <h2 class="intro-headline">전문 관제 서비스로 실현하는<br>보안위협 대응</h2>
+          <div class="intro-eyebrow">SERVICE METHOD</div>
+          <h2 class="intro-headline">체계화된 6단계 프로세스로<br>완성하는 보안관제</h2>
           <div class="intro-box">
-            새로운 공격기법들은 매우 다양해지고, 정보 자산에 대한 침해시도 및 각종 보안 위험성이 매년 증가하고 있으므로 이와 같은 대내외적 보안위협에 대응하기 위해 <strong>외부 전문 운영인력을 통한 보안관제서비스</strong>가 필요합니다.
+            CMT 보안관제는 <strong>현황 파악부터 대응 및 보고까지 6단계 체계화된 프로세스</strong>로 진행됩니다. 정보보호체계 구축 단계와 운영 단계를 명확히 구분하여 고객사 환경에 최적화된 보안 서비스를 제공합니다.
           </div>
         </div>
 
         <div class="diagram-section">
           <div class="section-head">
-            <div class="section-eyebrow">CORE VALUES</div>
-            <div class="section-title">CMT 보안관제서비스의 4가지 핵심 가치</div>
+            <div class="section-eyebrow">6 STEPS PROCESS</div>
+            <div class="section-title">서비스 수행 6단계 프로세스</div>
           </div>
-          <div class="diagram-wrap">
-            <div class="dv2">
-
-              <!-- Left cards -->
-              <div class="dv2-col dv2-left">
-                <div class="dv2-card">
-                  <div class="dv2-card-head">
-                    <span class="dv2-card-num">01</span>
-                    <div class="dv2-card-icon"><i class="ti ti-shield-check"></i></div>
-                  </div>
-                  <div class="dv2-card-title">최신보안기술을 활용한<br>침해사고 예방 및 대응</div>
-                </div>
-                <div class="dv2-card">
-                  <div class="dv2-card-head">
-                    <span class="dv2-card-num">03</span>
-                    <div class="dv2-card-icon"><i class="ti ti-coin"></i></div>
-                  </div>
-                  <div class="dv2-card-title">보안 및 운영을 위한<br>설비 및 투자비용 최소화</div>
-                </div>
-              </div>
-
-              <!-- Center hub -->
-              <div class="dv2-center">
-                <div class="dv2-hub">
-                  <div class="dv2-hub-tag">CMT</div>
-                  <div class="dv2-hub-title">보안관제<br>서비스</div>
-                </div>
-              </div>
-
-              <!-- Right cards -->
-              <div class="dv2-col dv2-right">
-                <div class="dv2-card">
-                  <div class="dv2-card-head">
-                    <span class="dv2-card-num">02</span>
-                    <div class="dv2-card-icon"><i class="ti ti-clock-hour-12"></i></div>
-                  </div>
-                  <div class="dv2-card-title">24×365 실시간 관제를 통한<br>무중단 서비스 실현</div>
-                </div>
-                <div class="dv2-card">
-                  <div class="dv2-card-head">
-                    <span class="dv2-card-num">04</span>
-                    <div class="dv2-card-icon"><i class="ti ti-users-group"></i></div>
-                  </div>
-                  <div class="dv2-card-title">인건비 절감과 불필요한<br>조직감소 및 보안전문가 활용</div>
-                </div>
-              </div>
-
+          <div class="process-wrap">
+            <!-- Steps -->
+            <div class="process-steps">
+              <div class="proc-step"><div class="proc-step-num">01</div><div class="proc-step-label">현황파악</div></div>
+              <div class="proc-step"><div class="proc-step-num">02</div><div class="proc-step-label">환경구축</div></div>
+              <div class="proc-step"><div class="proc-step-num">03</div><div class="proc-step-label">침해사고예방</div></div>
+              <div class="proc-step"><div class="proc-step-num">04</div><div class="proc-step-label">취약점제거</div></div>
+              <div class="proc-step active"><div class="proc-step-num">05</div><div class="proc-step-label">보안운영(관제)</div></div>
+              <div class="proc-step"><div class="proc-step-num">06</div><div class="proc-step-label">대응 및 보고</div></div>
             </div>
-          </div>
-        </div>
-
-        <div class="req-section">
-          <div class="section-head">
-            <div class="section-eyebrow">REQUIREMENTS</div>
-            <div class="section-title">보안관제 서비스 요구사항</div>
-          </div>
-          <div class="req-grid">
-            <div class="req-card">
-              <div class="req-card-head">
-                <div class="req-card-icon"><i class="ti ti-world-bolt"></i></div>
-                <div class="req-card-title-wrap">
-                  <div class="req-card-tag">EXTERNAL</div>
-                  <div class="req-card-title">대외적 요구사항</div>
-                </div>
-              </div>
-              <ul class="req-list">
-                <li class="req-item"><span class="req-item-dot"></span><span>성장하는 신기술 대비 <strong>정보보호 기술 습득의 어려움</strong> 발생</span></li>
-                <li class="req-item"><span class="req-item-dot"></span><span>침해 기술의 <strong>지속적인 발달</strong></span></li>
-                <li class="req-item"><span class="req-item-dot"></span><span>보안 위험성의 <strong>지속적인 증가</strong></span></li>
-                <li class="req-item"><span class="req-item-dot"></span><span><strong>정보자산 침해시도</strong> 매년 증가</span></li>
-                <li class="req-item"><span class="req-item-dot"></span><span>대응체계 수립 및 <strong>대응역량 강화</strong> 필요</span></li>
-              </ul>
+            <!-- Matrix -->
+            <div class="proc-matrix">
+              <div class="pm-cell header" style="grid-row:span 3;writing-mode:vertical-rl;transform:rotate(180deg);min-width:52px;"></div>
+              <div class="pm-cell header">현황파악 / 체계구축</div>
+              <div class="pm-cell header" style="grid-column:span 3;">예방 → 이벤트탐지/분석 → 장애/침해대응</div>
             </div>
-            <div class="req-card">
-              <div class="req-card-head">
-                <div class="req-card-icon"><i class="ti ti-building"></i></div>
-                <div class="req-card-title-wrap">
-                  <div class="req-card-tag">INTERNAL</div>
-                  <div class="req-card-title">대내적 요구사항</div>
-                </div>
-              </div>
-              <ul class="req-list">
-                <li class="req-item"><span class="req-item-dot"></span><span><strong>보안전문 인력 부족</strong> 및 양성의 어려움</span></li>
-                <li class="req-item"><span class="req-item-dot"></span><span>최신 보안기술 / 동향 <strong>정보 확보의 어려움</strong></span></li>
-                <li class="req-item"><span class="req-item-dot"></span><span>보안 솔루션 <strong>운영 / 관리의 부담</strong></span></li>
-                <li class="req-item"><span class="req-item-dot"></span><span><strong>보안지식</strong>의 부족</span></li>
-                <li class="req-item"><span class="req-item-dot"></span><span><strong>보안관련 예산</strong> 부족</span></li>
-              </ul>
+            <!-- Detail table -->
+            <div style="margin-top:24px; display:grid; grid-template-columns:52px 1fr 1fr 1fr; border:1px solid var(--lbd); border-radius:var(--r); overflow:hidden;">
+              <div class="pm-cell header" style="writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;display:flex;align-items:center;justify-content:center;grid-row:span 2;">단 계</div>
+              <div class="pm-cell bg-light" style="font-weight:600;color:var(--txt);text-align:center;">정보보호체계</div>
+              <div class="pm-cell bg-light" style="font-weight:600;color:var(--txt);text-align:center;">고객사</div>
+              <div class="pm-cell bg-light" style="font-weight:600;color:var(--txt);text-align:center;">Network / Security Device &amp; System Device</div>
+              <div class="pm-cell bg-light" style="font-weight:600;color:var(--txt);text-align:center;border-bottom:1px solid var(--lbd);">현황파악 · 체계구축</div>
+              <div class="pm-cell bg-light" style="font-weight:600;color:var(--txt);text-align:center;border-bottom:1px solid var(--lbd);">예방</div>
+              <div class="pm-cell bg-light" style="font-weight:600;color:var(--txt);text-align:center;border-bottom:1px solid var(--lbd);">이벤트탐지/분석 · 장애/침해대응</div>
+
+              <div class="pm-cell header" style="writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;display:flex;align-items:center;justify-content:center;grid-row:span 1;">수 행</div>
+              <div class="pm-cell bg-light"><ul>
+                <li>환경 파악</li><li>N/W 구성확인</li><li>System 파악</li><li>Application 점검</li><li>ISM 체계구축</li><li>관제환경 구축</li><li>안정화 테스트</li>
+              </ul></div>
+              <div class="pm-cell bg-light"><ul>
+                <li>보안정보 제공</li><li>신기술 동향·보안정보 분석</li><li>취약점점검 (정기/비정기)</li><li>서버 진단</li><li>네트워크 진단</li><li>모의해킹</li><li>Web-App 진단</li><li>위협 관리</li>
+              </ul></div>
+              <div class="pm-cell bg-light"><ul>
+                <li>실시간 모니터링</li><li>이벤트 탐지·분석</li><li>분석 시나리오 적용</li><li>오탐지 제거</li><li>보안정책 관리</li><li>로그 상관분석</li><li>사고 분석 · 확산 방지</li><li>원인 규명 · 복구 지원</li><li>정기 운영보고</li><li>침해사고 분석보고</li>
+              </ul></div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- SIDEBAR -->
       <aside class="sidebar">
         <div class="sidebar-card">
           <div class="sidebar-card-tag">Security Operation Service</div>
@@ -378,9 +330,9 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
           </div>
         </div>
         <nav class="sidebar-nav">
-          <a href="services_detail_securityoperationcenter.html" class="sidebar-nav-item active">서비스 개요 <i class="ti ti-chevron-right"></i></a>
+          <a href="services_detail_securityoperationcenter.html" class="sidebar-nav-item">서비스 개요 <i class="ti ti-chevron-right"></i></a>
           <a href="#" class="sidebar-nav-item">CMT EYES <i class="ti ti-chevron-right"></i></a>
-          <a href="services_detail_method.html" class="sidebar-nav-item">관제 방법론 <i class="ti ti-chevron-right"></i></a>
+          <a href="services_detail_method.html" class="sidebar-nav-item active">관제 방법론 <i class="ti ti-chevron-right"></i></a>
           <a href="services_detail_features.html" class="sidebar-nav-item">관제 서비스 범위 <i class="ti ti-chevron-right"></i></a>
           <a href="services_detail_offerings.html" class="sidebar-nav-item">관제 상품 <i class="ti ti-chevron-right"></i></a>
           <a href="#" class="sidebar-nav-item">AI-SOC 고도화 <i class="ti ti-chevron-right"></i></a>
@@ -393,7 +345,6 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
           <div class="contact-item"><div class="contact-label"><i class="ti ti-mail"></i>E-mail</div><div class="contact-value small">adm@cmtinfo.co.kr</div></div>
         </div>
       </aside>
-
     </div>
   </div>
 </section>
@@ -472,6 +423,11 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
     nodes.appendChild(dot);
   });
 })();
+</script>
+
+
+<script>
+(function(){const ns='http://www.w3.org/2000/svg',hg=document.getElementById('sh-hex');if(!hg)return;const R=18,W=1600,H=320,cols=Math.ceil(W/(R*1.5))+2,rows=Math.ceil(H/(R*Math.sqrt(3)))+2;function hp(cx,cy,r){const p=[];for(let i=0;i<6;i++){const a=Math.PI/180*(60*i+30);p.push([(cx+r*Math.cos(a)).toFixed(1),(cy+r*Math.sin(a)).toFixed(1)]);}return p.map(p=>p.join(',')).join(' ');}for(let row=0;row<rows;row++){for(let col=0;col<cols;col++){const cx=col*R*1.5,cy=row*R*Math.sqrt(3)+(col%2===0?0:R*Math.sqrt(3)/2),poly=document.createElementNS(ns,'polygon');poly.setAttribute('points',hp(cx,cy,R));if(Math.hypot(cx-1100,cy-160)<220)poly.setAttribute('stroke','rgba(0,198,255,0.32)');hg.appendChild(poly);}}const nd=document.getElementById('sh-nodes');[{x:1050,y:140},{x:1180,y:200},{x:980,y:220},{x:1280,y:110},{x:1140,y:90}].forEach(({x,y})=>{const r=document.createElementNS(ns,'circle');r.setAttribute('cx',x);r.setAttribute('cy',y);r.setAttribute('r',5);r.setAttribute('fill','rgba(0,198,255,0.18)');r.setAttribute('stroke','rgba(0,198,255,0.6)');r.setAttribute('stroke-width','0.8');nd.appendChild(r);const d=document.createElementNS(ns,'circle');d.setAttribute('cx',x);d.setAttribute('cy',y);d.setAttribute('r',1.6);d.setAttribute('fill','#ffffff');nd.appendChild(d);});})();
 </script>
 </body>
 </html>
