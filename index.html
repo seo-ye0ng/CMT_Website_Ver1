@@ -51,8 +51,8 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 .lang-sep { color: rgba(255,255,255,0.2); font-size: 15px; }
 
 /* ══ HERO ══ */
-.hero { position: relative; height: calc(100vh - 68px); min-height: 600px; max-height: 760px; background: linear-gradient(135deg, #080e1f 0%, #0d1a3a 55%, #0a1f50 100%); display: flex; align-items: center; overflow: hidden; }
-.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(79,142,247,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(79,142,247,0.045) 1px, transparent 1px); background-size: 72px 72px; pointer-events: none; }
+.hero { position: relative; height: calc(100vh - 68px); min-height: 600px; max-height: 760px; background: linear-gradient(135deg, #04081a 0%, #080e1f 40%, #0a1a40 75%, #0d2055 100%); display: flex; align-items: center; overflow: hidden; }
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(79,142,247,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(79,142,247,0.025) 1px, transparent 1px); background-size: 96px 96px; pointer-events: none; }
 .hero-glow { position: absolute; right: -10%; top: -15%; width: 55%; height: 130%; border-radius: 50%; background: radial-gradient(ellipse, rgba(32,64,154,0.3) 0%, transparent 65%); pointer-events: none; }
 .hero-glow2 { position: absolute; left: 35%; bottom: -20%; width: 30%; height: 60%; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,198,255,0.055) 0%, transparent 65%); pointer-events: none; }
 .hero-content { position: relative; z-index: 3; max-width: var(--max); min-width: var(--min); margin: 0 auto; padding: 0 var(--side); width: 100%; }
@@ -62,26 +62,26 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 .hero-dim { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(90deg, rgba(8,14,31,0.92) 0%, rgba(8,14,31,0.78) 28%, rgba(8,14,31,0.55) 50%, rgba(8,14,31,0.18) 75%, rgba(8,14,31,0) 100%); }
 .hero-slide-tag { font-size: 15px; color: var(--ac); letter-spacing: 0.18em; font-weight: 600; margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
 .hero-title { font-size: 48px; font-weight: 900; line-height: 1.16; margin-bottom: 14px; word-break: keep-all; white-space: nowrap; }
-.hero-en { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.7); letter-spacing: 0.04em; margin-bottom: 28px; }
-.hero-desc { font-size: 18px; color: rgba(255,255,255,0.55); line-height: 1.9; font-weight: 300; max-width: 480px; word-break: keep-all; }
+.hero-en { font-size: 24px; font-weight: 300; color: rgba(255,255,255,0.78); letter-spacing: 0.04em; margin-bottom: 28px; }
+.hero-desc { font-size: 18px; color: rgba(255,255,255,0.55); line-height: 1.9; font-weight: 300; max-width: 720px; word-break: keep-all; }
 .hero-cta { margin-top: 40px; display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: var(--prl); border: none; border-radius: var(--r); color: #fff; font-size: 18px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; font-family: 'Pretendard', sans-serif; cursor: pointer; align-self: flex-start; transition: background 0.2s, transform 0.2s; }
 .hero-cta:hover { background: var(--ac); transform: translateY(-2px); }
 .hero-cta i { font-size: 18px; color: #fff; }
 
 /* ══ SERVICES ══ */
-.services-pinwrap { position: relative; height: 480vh; background: var(--lt); }
-.services { position: sticky; top: 68px; height: calc(100vh - 68px); background: var(--lt); padding: 48px 0; overflow: hidden; display: flex; flex-direction: column; border-bottom: 1px solid var(--lbd); }
+.services-pinwrap { position: relative; background: var(--lt); }
+.services { position: relative; background: var(--lt); padding: 110px 0 0; overflow: hidden; border-bottom: 1px solid var(--lbd); }
 .sec-head { text-align: center; margin-bottom: 36px; }
 .sec-eyebrow { font-size: 15px; color: var(--pr); letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 14px; }
 .sec-title { font-size: clamp(22px, 2vw, 30px); font-weight: 700; color: var(--txt); }
-.tab-nav { display: flex; justify-content: center; border-bottom: 1px solid var(--lbd); background: var(--lt); }
+.tab-nav { display: flex; justify-content: center; border-bottom: 1px solid var(--lbd); background: var(--lt); margin-top: 24px; }
 .tab-btn { padding: 16px 36px; font-size: 18px; font-weight: 500; color: var(--mut); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; font-family: 'Pretendard', sans-serif; letter-spacing: 0.01em; transition: all 0.22s; white-space: nowrap; }
 .tab-btn.active { color: var(--pr); border-bottom-color: var(--pr); font-weight: 700; }
 .tab-btn:hover:not(.active) { color: var(--txt); }
 .tab-panel { display: none; }
-.tab-panel.active { display: flex; flex: 1; min-height: 0; }
-.panel-wrap { display: grid; grid-template-columns: 1fr 1fr; width: 100%; flex: 1; min-height: 0; }
-.panel-left { padding: 32px var(--side); display: flex; flex-direction: column; justify-content: center; background: var(--lt); }
+.tab-panel.active { display: block; }
+.panel-wrap { display: grid; grid-template-columns: 1fr 1fr; width: 100%; min-height: 560px; }
+.panel-left { padding: 64px var(--side); display: flex; flex-direction: column; justify-content: center; background: var(--lt); }
 .p-num { font-size: 15px; color: var(--pr); letter-spacing: 0.15em; font-weight: 700; margin-bottom: 16px; opacity: 0.65; }
 .p-title { font-size: clamp(28px, 2.4vw, 38px); font-weight: 900; line-height: 1.32; margin-bottom: 14px; color: var(--txt); word-break: keep-all; }
 .p-desc { font-size: 15px; color: var(--mut); line-height: 1.8; font-weight: 400; margin-bottom: 20px; word-break: keep-all; max-width: 440px; }
@@ -142,15 +142,15 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   .p-features { margin-bottom: 36px; }
 }
 @media (max-width: 1600px) { :root { --side: 60px; } .nav-menu > li > a { padding: 0 16px; } .tab-btn { padding: 16px 24px; } }
-@media (max-width: 1400px) { :root { --side: 40px; } .nav-menu > li > a { padding: 0 13px; font-size: 15px; } .tab-btn { padding: 14px 18px; font-size: 18px; } .panel-left { padding: 24px var(--side); } }
+@media (max-width: 1400px) { :root { --side: 40px; } .nav-menu > li > a { padding: 0 13px; font-size: 15px; } .tab-btn { padding: 14px 18px; font-size: 18px; } .panel-left { padding: 48px var(--side); } }
 
-/* ── Stats Overlay (overlap hero bottom) ── */
-.stats-overlay { position: relative; margin: -86px auto 0; max-width: var(--max); min-width: var(--min); padding: 0 var(--side); z-index: 5; }
-.stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-.stat-card { background: rgba(13,26,58,0.62); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.10); border-radius: 18px; padding: 28px 30px; transition: transform 0.25s, background 0.25s, border-color 0.25s; }
-.stat-card:hover { background: rgba(13,26,58,0.82); border-color: rgba(79,142,247,0.35); transform: translateY(-3px); }
-.stat-card-num { font-size: 40px; font-weight: 900; color: #fff; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 10px; }
-.stat-card-label { font-size: 15px; color: rgba(255,255,255,0.58); letter-spacing: 0.01em; font-weight: 400; }
+/* ── Stats Section (hero 바깥, 미니멀 라이트) ── */
+.stats-section { background: #fff; padding: 88px 0; border-bottom: 1px solid var(--lbd); position: relative; }
+.stats-section::before { content: ''; position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 60%; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(32,64,154,0.18) 50%, transparent 100%); }
+.stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; max-width: 1400px; margin: 0 auto; }
+.stat-item { text-align: center; padding: 0 12px; }
+.stat-label { font-size: 13px; color: var(--mut); letter-spacing: 0.06em; font-weight: 500; margin-bottom: 18px; text-transform: uppercase; }
+.stat-num { font-size: 56px; font-weight: 800; color: var(--pr); letter-spacing: -0.025em; line-height: 1; }
 
 /* ── SOC Feature Section (통합 보안 관제) ── */
 .soc-feat { background: var(--bg); padding: 110px 0; position: relative; overflow: hidden; }
@@ -199,11 +199,8 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 .trust-pillar-list { font-size: 14px; line-height: 1.85; color: rgba(255,255,255,0.58); word-break: keep-all; }
 .trust-pillar-list strong { color: var(--ac); font-weight: 600; }
 
-/* ── Compensate Services for the overlapping stats above ── */
-.services { padding: 110px 0 48px !important; }
-
-@media (max-width: 1600px) { .stat-card { padding: 24px 26px; } .stat-card-num { font-size: 36px; } .soc-feat-title, .biz-title, .trust-title { font-size: 34px; } }
-@media (max-width: 1400px) { .stats-grid { gap: 12px; } .stat-card { padding: 22px 22px; border-radius: 16px; } .stat-card-num { font-size: 32px; } .stat-card-label { font-size: 14px; } .soc-feat-title, .biz-title, .trust-title { font-size: 30px; } .biz-grid, .trust-grid, .soc-process { gap: 14px; } .biz-card, .trust-pillar, .soc-step { padding: 26px 22px; } }
+@media (max-width: 1600px) { .stats-section { padding: 72px 0; } .stat-num { font-size: 48px; } .soc-feat-title, .biz-title, .trust-title { font-size: 34px; } }
+@media (max-width: 1400px) { .stats-section { padding: 60px 0; } .stats-grid { gap: 16px; } .stat-label { font-size: 12px; margin-bottom: 14px; } .stat-num { font-size: 40px; } .soc-feat-title, .biz-title, .trust-title { font-size: 30px; } .biz-grid, .trust-grid, .soc-process { gap: 14px; } .biz-card, .trust-pillar, .soc-step { padding: 26px 22px; } }
 
 </style>
 </head>
@@ -274,20 +271,43 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   <div class="hero-illust">
     <svg viewBox="0 0 1600 800" xmlns="http://www.w3.org/2000/svg" id="hero-svg" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <radialGradient id="glow1" cx="45%" cy="30%" r="40%"><stop offset="0%" stop-color="#00c6ff" stop-opacity="0.9"/><stop offset="100%" stop-color="#00c6ff" stop-opacity="0"/></radialGradient>
-        <radialGradient id="glow2" cx="70%" cy="70%" r="35%"><stop offset="0%" stop-color="#4f8ef7" stop-opacity="0.7"/><stop offset="100%" stop-color="#4f8ef7" stop-opacity="0"/></radialGradient>
-        <radialGradient id="glow3" cx="20%" cy="65%" r="30%"><stop offset="0%" stop-color="#00c6ff" stop-opacity="0.5"/><stop offset="100%" stop-color="#00c6ff" stop-opacity="0"/></radialGradient>
+        <radialGradient id="earth-fill" cx="35%" cy="35%" r="75%">
+          <stop offset="0%" stop-color="#1a3470" stop-opacity="0.85"/>
+          <stop offset="55%" stop-color="#0a1f50" stop-opacity="0.95"/>
+          <stop offset="100%" stop-color="#050a1c" stop-opacity="1"/>
+        </radialGradient>
+        <radialGradient id="earth-aura" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#4f8ef7" stop-opacity="0.55"/>
+          <stop offset="55%" stop-color="#4f8ef7" stop-opacity="0.10"/>
+          <stop offset="100%" stop-color="#4f8ef7" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="cyan-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#00c6ff" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#00c6ff" stop-opacity="0"/>
+        </radialGradient>
         <filter id="blur-soft"><feGaussianBlur stdDeviation="2.5"/></filter>
         <filter id="blur-strong"><feGaussianBlur stdDeviation="8"/></filter>
         <clipPath id="svgclip"><rect width="1600" height="800"/></clipPath>
       </defs>
       <g clip-path="url(#svgclip)">
-        <ellipse cx="900" cy="220" rx="320" ry="180" fill="url(#glow1)" filter="url(#blur-strong)" opacity="0.6"/>
-        <ellipse cx="1200" cy="560" rx="260" ry="160" fill="url(#glow2)" filter="url(#blur-strong)" opacity="0.5"/>
-        <ellipse cx="350" cy="500" rx="220" ry="140" fill="url(#glow3)" filter="url(#blur-strong)" opacity="0.4"/>
-        <g id="hex-layer"></g>
-        <g id="wave-lines" opacity="0.55"></g>
-        <g id="node-dots"></g>
+        <!-- 별 배경 -->
+        <g id="stars-layer"></g>
+        <!-- 지구 외곽 글로우 -->
+        <circle cx="1150" cy="400" r="340" fill="url(#earth-aura)" filter="url(#blur-strong)"/>
+        <!-- 지구 본체 -->
+        <g id="earth-group">
+          <circle cx="1150" cy="400" r="240" fill="url(#earth-fill)" stroke="rgba(79,142,247,0.45)" stroke-width="1"/>
+          <g id="earth-lats" stroke="rgba(79,142,247,0.32)" stroke-width="0.8" fill="none"></g>
+          <g id="earth-lngs" stroke="rgba(79,142,247,0.28)" stroke-width="0.7" fill="none"></g>
+          <g id="earth-dots"></g>
+          <g id="earth-cities"></g>
+        </g>
+        <!-- 도시 → 위성 연결선 -->
+        <g id="links-layer"></g>
+        <!-- 외부 정적 위성 -->
+        <g id="satellites-static"></g>
+        <!-- 회전 궤도 위성 (rAF로 갱신) -->
+        <g id="satellites-orbit"></g>
       </g>
     </svg>
   </div>
@@ -303,16 +323,18 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   </div>
 </section>
 
-<!-- STATS OVERLAY (overlapping hero bottom) -->
-<div class="stats-overlay">
-  <div class="stats-grid">
-    <div class="stat-card"><div class="stat-card-num">2008</div><div class="stat-card-label">설립</div></div>
-    <div class="stat-card"><div class="stat-card-num">A0</div><div class="stat-card-label">신용평가 등급</div></div>
-    <div class="stat-card"><div class="stat-card-num">24×365</div><div class="stat-card-label">보안관제 운영</div></div>
-    <div class="stat-card"><div class="stat-card-num">80%+</div><div class="stat-card-label">기술 엔지니어 비율</div></div>
-    <div class="stat-card"><div class="stat-card-num">Global</div><div class="stat-card-label">해외 지사 · 파트너망</div></div>
+<!-- STATS SECTION (hero 바깥, 미니멀 라이트) -->
+<section class="stats-section">
+  <div class="inner">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-label">SINCE 설립연도</div><div class="stat-num">2008</div></div>
+      <div class="stat-item"><div class="stat-label">신용평가 등급</div><div class="stat-num">A0</div></div>
+      <div class="stat-item"><div class="stat-label">보안관제 운영</div><div class="stat-num">24×365</div></div>
+      <div class="stat-item"><div class="stat-label">기술 엔지니어 비율</div><div class="stat-num">80%+</div></div>
+      <div class="stat-item"><div class="stat-label">해외 지사 · 파트너망</div><div class="stat-num">Global</div></div>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- SERVICES -->
 <div class="services-pinwrap">
@@ -324,11 +346,11 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
     </div>
   </div>
   <div class="tab-nav" role="tablist">
-    <button class="tab-btn active" onclick="scrollToTab(0)">보안관제</button>
-    <button class="tab-btn" onclick="scrollToTab(1)">Security Integration</button>
-    <button class="tab-btn" onclick="scrollToTab(2)">통합 유지보수</button>
-    <button class="tab-btn" onclick="scrollToTab(3)">정보보호 컨설팅</button>
-    <button class="tab-btn" onclick="scrollToTab(4)">OT Security</button>
+    <button class="tab-btn active" onclick="switchTab(0)">보안관제</button>
+    <button class="tab-btn" onclick="switchTab(1)">Security Integration</button>
+    <button class="tab-btn" onclick="switchTab(2)">통합 유지보수</button>
+    <button class="tab-btn" onclick="switchTab(3)">정보보호 컨설팅</button>
+    <button class="tab-btn" onclick="switchTab(4)">OT Security</button>
   </div>
 
   <!-- 보안관제 -->
@@ -618,72 +640,301 @@ function switchTab(idx) {
   document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
   document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
 }
-const NAV_H=68, TAB_COUNT=5;
-let currentTab=0;
-function updateScrollTabs() {
-  const pinwrap=document.querySelector('.services-pinwrap');
-  if(!pinwrap)return;
-  const rect=pinwrap.getBoundingClientRect(), winH=window.innerHeight;
-  const stickyH=winH-NAV_H, wrapperH=pinwrap.offsetHeight;
-  const totalScrollable=wrapperH-stickyH, scrolled=NAV_H-rect.top;
-  let progress=Math.max(0,Math.min(1,scrolled/totalScrollable));
-  let idx=Math.min(Math.floor(progress*TAB_COUNT),TAB_COUNT-1);
-  if(currentTab!==idx){currentTab=idx;switchTab(idx);}
-}
-function scrollToTab(idx) {
-  const pinwrap=document.querySelector('.services-pinwrap');
-  if(!pinwrap)return;
-  const stickyH=window.innerHeight-NAV_H, totalScrollable=pinwrap.offsetHeight-stickyH;
-  const targetY=pinwrap.offsetTop-NAV_H+(totalScrollable*((idx+0.5)/TAB_COUNT));
-  window.scrollTo({top:targetY,behavior:'smooth'});
-}
-window.addEventListener('scroll',updateScrollTabs,{passive:true});
-window.addEventListener('resize',updateScrollTabs);
-updateScrollTabs();
 
 (function(){
-  const ns='http://www.w3.org/2000/svg', HEX_R=22, W=1600, H=800;
-  function waveY(x,z){const a1=70+z*50,a2=35+z*25,f1=(2*Math.PI)/420,f2=(2*Math.PI)/210;return a1*Math.sin(x*f1+0.6)+a2*Math.sin(x*f2+1.2);}
-  function hexPoints(cx,cy,r){const pts=[];for(let i=0;i<6;i++){const a=Math.PI/180*(60*i+30);pts.push([cx+r*Math.cos(a),cy+r*Math.sin(a)]);}return pts;}
-  const cols=Math.ceil(W/(HEX_R*0.45*1.75))+4, rows=22;
-  const hexLayer=document.getElementById('hex-layer'), waveLines=document.getElementById('wave-lines'), nodeDots=document.getElementById('node-dots');
-  for(let row=0;row<rows;row++){
-    const zFrac=row/(rows-1), yBase=-30+row*(H/rows), scale=0.45+zFrac*0.55, r=HEX_R*scale;
-    const hSpacing=r*1.75, opacity=0.08+zFrac*0.35, strokeW=0.4+zFrac*0.8;
-    for(let col=-1;col<cols;col++){
-      const xBase=col*hSpacing+(row%2===0?0:hSpacing*0.5), dy=waveY(xBase,zFrac)*0.55;
-      const cx=xBase+10, cy=yBase+dy;
-      if(cx<-r*2||cx>W+r*2)continue;
-      const poly=document.createElementNS(ns,'polygon');
-      poly.setAttribute('points',hexPoints(cx,cy,r).map(p=>p.join(',')).join(' '));
-      const d1=Math.hypot(cx-900,cy-220), d2=Math.hypot(cx-1200,cy-560);
-      if(d1<220||d2<180){poly.setAttribute('fill','rgba(0,198,255,0.07)');poly.setAttribute('stroke',`rgba(0,198,255,${opacity*1.6})`);}
-      else{poly.setAttribute('fill','rgba(32,64,154,0.04)');poly.setAttribute('stroke',`rgba(79,142,247,${opacity})`);}
-      poly.setAttribute('stroke-width',strokeW);
-      hexLayer.appendChild(poly);
+  const ns = 'http://www.w3.org/2000/svg';
+  const W = 1600, H = 800;
+  const CX = 1150, CY = 400, R = 240;  // 지구 중심 + 반지름
+
+  const starsLayer = document.getElementById('stars-layer');
+  const earthLats = document.getElementById('earth-lats');
+  const earthLngs = document.getElementById('earth-lngs');
+  const earthDots = document.getElementById('earth-dots');
+  const earthCities = document.getElementById('earth-cities');
+  const linksLayer = document.getElementById('links-layer');
+  const satStatic = document.getElementById('satellites-static');
+  const satOrbit = document.getElementById('satellites-orbit');
+
+  // === 별 배경 (랜덤) ===
+  for (let i = 0; i < 200; i++) {
+    const x = Math.random() * W;
+    const y = Math.random() * H;
+    // 지구 내부에는 별 안 그림
+    if (Math.hypot(x - CX, y - CY) < R + 18) continue;
+    const r = Math.random() * 1.2 + 0.25;
+    const op = Math.random() * 0.55 + 0.25;
+    const star = document.createElementNS(ns, 'circle');
+    star.setAttribute('cx', x);
+    star.setAttribute('cy', y);
+    star.setAttribute('r', r);
+    star.setAttribute('fill', '#fff');
+    star.setAttribute('opacity', op);
+    if (Math.random() < 0.25) {
+      star.classList.add('star-twinkle');
+      star.style.animationDelay = (Math.random() * 4) + 's';
+      star.style.animationDuration = (3 + Math.random() * 2.5) + 's';
     }
+    starsLayer.appendChild(star);
   }
-  [5,10,15].forEach((tRow,ri)=>{
-    const zFrac=tRow/(rows-1),yBase=-30+tRow*(H/rows),scale=0.45+zFrac*0.55,r=HEX_R*scale,hSpacing=r*1.75;
-    const pts=[];
-    for(let col=-1;col<cols+1;col++){const xBase=col*hSpacing+(tRow%2===0?0:hSpacing*0.5);pts.push([xBase+10,yBase+waveY(xBase,zFrac)*0.55]);}
-    const colors=['rgba(0,198,255,0.55)','rgba(79,142,247,0.4)','rgba(0,198,255,0.35)'],widths=[1.2,0.9,0.7];
-    const gp=document.createElementNS(ns,'polyline');
-    gp.setAttribute('points',pts.map(p=>p.join(',')).join(' '));gp.setAttribute('fill','none');
-    gp.setAttribute('stroke',colors[ri]);gp.setAttribute('stroke-width',widths[ri]*4);gp.setAttribute('stroke-linecap','round');gp.setAttribute('opacity','0.15');gp.setAttribute('filter','url(#blur-soft)');
-    waveLines.appendChild(gp);
-    const p=document.createElementNS(ns,'polyline');
-    p.setAttribute('points',pts.map(p=>p.join(',')).join(' '));p.setAttribute('fill','none');
-    p.setAttribute('stroke',colors[ri]);p.setAttribute('stroke-width',widths[ri]);p.setAttribute('stroke-linecap','round');
-    waveLines.appendChild(p);
+
+  // === 지구 위도선 (8개) ===
+  for (let i = -4; i <= 4; i++) {
+    if (i === 0) continue;
+    const ratio = i / 5;
+    const rx = R * Math.sqrt(1 - ratio * ratio);
+    const cy = CY + ratio * R;
+    const ell = document.createElementNS(ns, 'ellipse');
+    ell.setAttribute('cx', CX);
+    ell.setAttribute('cy', cy);
+    ell.setAttribute('rx', rx);
+    ell.setAttribute('ry', rx * 0.06);  // 약간의 두께(원근감)
+    ell.setAttribute('opacity', 0.65);
+    earthLats.appendChild(ell);
+  }
+  // 적도(가장 굵게)
+  const eq = document.createElementNS(ns, 'ellipse');
+  eq.setAttribute('cx', CX); eq.setAttribute('cy', CY);
+  eq.setAttribute('rx', R); eq.setAttribute('ry', R * 0.12);
+  eq.setAttribute('stroke', 'rgba(79,142,247,0.42)');
+  eq.setAttribute('stroke-width', 1);
+  eq.setAttribute('fill', 'none');
+  earthLats.appendChild(eq);
+
+  // === 지구 경도선 (6개, 회전된 ellipse) ===
+  for (let i = 0; i < 6; i++) {
+    const deg = (i / 6) * 180;
+    const ell = document.createElementNS(ns, 'ellipse');
+    ell.setAttribute('cx', CX);
+    ell.setAttribute('cy', CY);
+    ell.setAttribute('rx', R * Math.abs(Math.cos(deg * Math.PI / 180)) + 0.5);
+    ell.setAttribute('ry', R);
+    ell.setAttribute('opacity', 0.6);
+    earthLngs.appendChild(ell);
+  }
+
+  // === 지구 표면 도트 패턴 (대륙 느낌) ===
+  for (let i = 0; i < 380; i++) {
+    // 구면 균일 분포 (Marsaglia)
+    let u, v, s;
+    do {
+      u = Math.random() * 2 - 1;
+      v = Math.random() * 2 - 1;
+      s = u*u + v*v;
+    } while (s >= 1);
+    const sx = 2 * u * Math.sqrt(1 - s);
+    const sy = 2 * v * Math.sqrt(1 - s);
+    const sz = 1 - 2 * s;
+    if (sz < 0.05) continue; // 뒷면 가림
+    const x = CX + sx * R;
+    const y = CY - sy * R; // y축 반전
+    const dotR = (0.6 + Math.random() * 0.9) * Math.max(0.4, sz);
+    const dot = document.createElementNS(ns, 'circle');
+    dot.setAttribute('cx', x);
+    dot.setAttribute('cy', y);
+    dot.setAttribute('r', dotR);
+    dot.setAttribute('fill', `rgba(120,180,255,${0.18 + sz * 0.4})`);
+    earthDots.appendChild(dot);
+  }
+
+  // === 도시 노드 + 위성 연결선 (지구 표면의 주요 노드들) ===
+  // (lat, lng) → 구면 → 화면 좌표 + 깊이(z)
+  const cities = [
+    { lat: 38, lng: -10 },  // 한반도/일본 부근
+    { lat: 50, lng: -45 },  // 유럽
+    { lat: 18, lng: 15 },
+    { lat: -12, lng: -22 },
+    { lat: 30, lng: 35 },
+    { lat: -28, lng: -8 },
+    { lat: 8, lng: -38 },
+    { lat: 58, lng: 5 }
+  ];
+
+  function project(lat, lng) {
+    const latR = lat * Math.PI / 180;
+    const lngR = lng * Math.PI / 180;
+    const x = CX + R * Math.cos(latR) * Math.sin(lngR);
+    const y = CY - R * Math.sin(latR);
+    const z = Math.cos(latR) * Math.cos(lngR);  // -1(뒷면)~1(앞면)
+    return { x, y, z };
+  }
+
+  cities.forEach((c, idx) => {
+    const p = project(c.lat, c.lng);
+    if (p.z < 0.15) return;  // 뒷면 + 가장자리 가까운 건 제외
+
+    // 도시 발광 원
+    const haloR = 8 + (idx % 2) * 2;
+    const halo = document.createElementNS(ns, 'circle');
+    halo.setAttribute('cx', p.x); halo.setAttribute('cy', p.y);
+    halo.setAttribute('r', haloR);
+    halo.setAttribute('fill', 'rgba(0,198,255,0.12)');
+    halo.setAttribute('stroke', 'rgba(0,198,255,0.55)');
+    halo.setAttribute('stroke-width', '0.8');
+    halo.classList.add('city-pulse');
+    halo.style.animationDelay = (idx * 0.45) + 's';
+    earthCities.appendChild(halo);
+
+    // 도시 점
+    const dot = document.createElementNS(ns, 'circle');
+    dot.setAttribute('cx', p.x); dot.setAttribute('cy', p.y);
+    dot.setAttribute('r', 2.5);
+    dot.setAttribute('fill', '#00c6ff');
+    dot.setAttribute('filter', 'url(#blur-soft)');
+    earthCities.appendChild(dot);
+    const dot2 = document.createElementNS(ns, 'circle');
+    dot2.setAttribute('cx', p.x); dot2.setAttribute('cy', p.y);
+    dot2.setAttribute('r', 1.6); dot2.setAttribute('fill', '#fff');
+    earthCities.appendChild(dot2);
+
+    // 위성 위치: 도시 → 지구 중심 반대방향으로 연장
+    const dx = p.x - CX, dy = p.y - CY;
+    const dLen = Math.hypot(dx, dy) || 1;
+    const extRatio = 1.55 + (idx * 0.13) % 0.8;  // 매번 다른 거리
+    const satX = CX + (dx / dLen) * R * extRatio + (idx % 2 === 0 ? 25 : -25);
+    const satY = CY + (dy / dLen) * R * extRatio - 20 - (idx % 3) * 10;
+
+    // 곡선 연결 (Quadratic Bezier, 살짝 휘게)
+    const midX = (p.x + satX) / 2 + (dx > 0 ? 25 : -25);
+    const midY = (p.y + satY) / 2 - 30;
+    const path = document.createElementNS(ns, 'path');
+    const d = `M ${p.x.toFixed(1)} ${p.y.toFixed(1)} Q ${midX.toFixed(1)} ${midY.toFixed(1)} ${satX.toFixed(1)} ${satY.toFixed(1)}`;
+    path.setAttribute('d', d);
+    path.setAttribute('stroke', 'rgba(0,198,255,0.55)');
+    path.setAttribute('stroke-width', '0.9');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke-dasharray', '6 5');
+    path.classList.add('link-dash');
+    path.style.animationDelay = (idx * 0.6) + 's';
+    linksLayer.appendChild(path);
+
+    // 외부 위성 (4개 모서리, 작은 십자)
+    const satG = document.createElementNS(ns, 'g');
+    satG.setAttribute('transform', `translate(${satX.toFixed(1)} ${satY.toFixed(1)})`);
+    // 위성 본체
+    const satBody = document.createElementNS(ns, 'circle');
+    satBody.setAttribute('cx', 0); satBody.setAttribute('cy', 0);
+    satBody.setAttribute('r', 3); satBody.setAttribute('fill', '#fff');
+    satBody.setAttribute('filter', 'url(#blur-soft)');
+    satG.appendChild(satBody);
+    const satCore = document.createElementNS(ns, 'circle');
+    satCore.setAttribute('cx', 0); satCore.setAttribute('cy', 0);
+    satCore.setAttribute('r', 1.6); satCore.setAttribute('fill', '#fff');
+    satG.appendChild(satCore);
+    // 위성 날개 (작은 선)
+    const wing1 = document.createElementNS(ns, 'rect');
+    wing1.setAttribute('x', -7); wing1.setAttribute('y', -0.6);
+    wing1.setAttribute('width', 4); wing1.setAttribute('height', 1.2);
+    wing1.setAttribute('fill', 'rgba(0,198,255,0.7)');
+    satG.appendChild(wing1);
+    const wing2 = document.createElementNS(ns, 'rect');
+    wing2.setAttribute('x', 3); wing2.setAttribute('y', -0.6);
+    wing2.setAttribute('width', 4); wing2.setAttribute('height', 1.2);
+    wing2.setAttribute('fill', 'rgba(0,198,255,0.7)');
+    satG.appendChild(wing2);
+    satStatic.appendChild(satG);
   });
-  [{x:850,y:180},{x:950,y:230},{x:800,y:270},{x:1180,y:520},{x:1240,y:570},{x:1130,y:610},{x:340,y:480},{x:400,y:530},{x:1060,y:380},{x:1120,y:340},{x:600,y:340},{x:550,y:410}].forEach(({x,y})=>{
-    const ring=document.createElementNS(ns,'circle');ring.setAttribute('cx',x);ring.setAttribute('cy',y);ring.setAttribute('r',8);ring.setAttribute('fill','rgba(0,198,255,0.12)');ring.setAttribute('stroke','rgba(0,198,255,0.5)');ring.setAttribute('stroke-width','0.8');nodeDots.appendChild(ring);
-    const dot=document.createElementNS(ns,'circle');dot.setAttribute('cx',x);dot.setAttribute('cy',y);dot.setAttribute('r',2.5);dot.setAttribute('fill','#00c6ff');dot.setAttribute('filter','url(#blur-soft)');nodeDots.appendChild(dot);
-    const dot2=document.createElementNS(ns,'circle');dot2.setAttribute('cx',x);dot2.setAttribute('cy',y);dot2.setAttribute('r',1.8);dot2.setAttribute('fill','#ffffff');nodeDots.appendChild(dot2);
+
+  // === 회전 궤도 위성 (rAF로 직접 갱신, transform-origin 호환성 우회) ===
+  const orbits = [
+    { rx: 320, ry: 110, tilt: -18, speed: 0.045, phase: 0, color: '#00c6ff', size: 4.5 },
+    { rx: 360, ry: 130, tilt: 22, speed: -0.032, phase: 110, color: '#fff', size: 3.8 },
+    { rx: 290, ry: 90, tilt: 8, speed: 0.060, phase: 220, color: '#4f8ef7', size: 4 }
+  ];
+
+  // 궤도 가이드 라인
+  orbits.forEach(o => {
+    const orbitLine = document.createElementNS(ns, 'ellipse');
+    orbitLine.setAttribute('cx', CX);
+    orbitLine.setAttribute('cy', CY);
+    orbitLine.setAttribute('rx', o.rx);
+    orbitLine.setAttribute('ry', o.ry);
+    orbitLine.setAttribute('fill', 'none');
+    orbitLine.setAttribute('stroke', 'rgba(79,142,247,0.18)');
+    orbitLine.setAttribute('stroke-width', '0.6');
+    orbitLine.setAttribute('stroke-dasharray', '2 4');
+    orbitLine.setAttribute('transform', `rotate(${o.tilt} ${CX} ${CY})`);
+    satOrbit.appendChild(orbitLine);
   });
-  const style=document.createElement('style');
-  style.textContent=`#node-dots circle[r="8"]{animation:hexPulse 3s ease-in-out infinite;}#node-dots circle[r="8"]:nth-child(3n+1){animation-delay:0s;}#node-dots circle[r="8"]:nth-child(3n+2){animation-delay:1s;}#node-dots circle[r="8"]:nth-child(3n+3){animation-delay:2s;}@keyframes hexPulse{0%,100%{r:8;opacity:0.7;}50%{r:13;opacity:0.3;}}`;
+
+  // 위성 본체 + 트레일
+  const orbitSats = orbits.map((o, i) => {
+    const g = document.createElementNS(ns, 'g');
+    // 트레일 (꼬리)
+    const trail = document.createElementNS(ns, 'path');
+    trail.setAttribute('stroke', o.color);
+    trail.setAttribute('stroke-width', '1.2');
+    trail.setAttribute('stroke-linecap', 'round');
+    trail.setAttribute('fill', 'none');
+    trail.setAttribute('opacity', '0.55');
+    g.appendChild(trail);
+    // 글로우
+    const glow = document.createElementNS(ns, 'circle');
+    glow.setAttribute('r', o.size * 2.2);
+    glow.setAttribute('fill', o.color);
+    glow.setAttribute('opacity', '0.18');
+    glow.setAttribute('filter', 'url(#blur-soft)');
+    g.appendChild(glow);
+    // 본체
+    const body = document.createElementNS(ns, 'circle');
+    body.setAttribute('r', o.size);
+    body.setAttribute('fill', o.color);
+    g.appendChild(body);
+    // 코어
+    const core = document.createElementNS(ns, 'circle');
+    core.setAttribute('r', o.size * 0.45);
+    core.setAttribute('fill', '#fff');
+    g.appendChild(core);
+    satOrbit.appendChild(g);
+    return { ...o, g, body, glow, core, trail };
+  });
+
+  function setSatPos(sat, t) {
+    const a = sat.phase + sat.speed * t * 60; // degrees
+    const tilt = sat.tilt * Math.PI / 180;
+    const ang = a * Math.PI / 180;
+    // 타원 위 점
+    const lx = Math.cos(ang) * sat.rx;
+    const ly = Math.sin(ang) * sat.ry;
+    // tilt 회전
+    const x = CX + lx * Math.cos(tilt) - ly * Math.sin(tilt);
+    const y = CY + lx * Math.sin(tilt) + ly * Math.cos(tilt);
+    sat.body.setAttribute('cx', x); sat.body.setAttribute('cy', y);
+    sat.glow.setAttribute('cx', x); sat.glow.setAttribute('cy', y);
+    sat.core.setAttribute('cx', x); sat.core.setAttribute('cy', y);
+    // 트레일: 현재 각도 이전 24도만큼 호 그리기
+    const arcPts = [];
+    for (let k = 0; k <= 12; k++) {
+      const ta = (a - k * 2) * Math.PI / 180;
+      const tlx = Math.cos(ta) * sat.rx;
+      const tly = Math.sin(ta) * sat.ry;
+      const tx = CX + tlx * Math.cos(tilt) - tly * Math.sin(tilt);
+      const ty = CY + tlx * Math.sin(tilt) + tly * Math.cos(tilt);
+      arcPts.push(`${tx.toFixed(1)},${ty.toFixed(1)}`);
+    }
+    sat.trail.setAttribute('d', 'M ' + arcPts.join(' L '));
+  }
+
+  let start = performance.now();
+  function tick() {
+    const t = (performance.now() - start) / 1000;
+    orbitSats.forEach(s => setSatPos(s, t));
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  // === 별 깜빡임 & 도시 펄스 & 연결선 점선 흐름 CSS 주입 ===
+  const style = document.createElement('style');
+  style.textContent = `
+    .star-twinkle { animation: twinkle 3s ease-in-out infinite; }
+    @keyframes twinkle { 0%,100% { opacity: 0.25; } 50% { opacity: 0.9; } }
+    .city-pulse { transform-origin: center; transform-box: fill-box; animation: cityPulse 2.6s ease-in-out infinite; }
+    @keyframes cityPulse {
+      0%,100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 0.25; transform: scale(1.7); }
+    }
+    .link-dash { animation: dashFlow 1.6s linear infinite; }
+    @keyframes dashFlow { to { stroke-dashoffset: -22; } }
+  `;
   document.head.appendChild(style);
 })();
 
