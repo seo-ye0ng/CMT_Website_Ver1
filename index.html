@@ -51,7 +51,7 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 .lang-sep { color: rgba(255,255,255,0.2); font-size: 15px; }
 
 /* ══ HERO ══ */
-.hero { position: relative; height: calc(100vh - 148px); min-height: 540px; max-height: 720px; background: linear-gradient(135deg, #080e1f 0%, #0d1a3a 55%, #0a1f50 100%); display: flex; align-items: center; overflow: hidden; }
+.hero { position: relative; height: calc(100vh - 68px); min-height: 600px; max-height: 760px; background: linear-gradient(135deg, #080e1f 0%, #0d1a3a 55%, #0a1f50 100%); display: flex; align-items: center; overflow: hidden; }
 .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(79,142,247,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(79,142,247,0.045) 1px, transparent 1px); background-size: 72px 72px; pointer-events: none; }
 .hero-glow { position: absolute; right: -10%; top: -15%; width: 55%; height: 130%; border-radius: 50%; background: radial-gradient(ellipse, rgba(32,64,154,0.3) 0%, transparent 65%); pointer-events: none; }
 .hero-glow2 { position: absolute; left: 35%; bottom: -20%; width: 30%; height: 60%; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,198,255,0.055) 0%, transparent 65%); pointer-events: none; }
@@ -144,13 +144,66 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 @media (max-width: 1600px) { :root { --side: 60px; } .nav-menu > li > a { padding: 0 16px; } .tab-btn { padding: 16px 24px; } }
 @media (max-width: 1400px) { :root { --side: 40px; } .nav-menu > li > a { padding: 0 13px; font-size: 15px; } .tab-btn { padding: 14px 18px; font-size: 18px; } .panel-left { padding: 24px var(--side); } }
 
-/* ── Stats Bar ── */
-.stats-bar { background: var(--bgn); border-bottom: 1px solid var(--bd); padding: 18px 0; }
-.stats-inner { display: flex; align-items: center; justify-content: center; gap: 0; }
-.stat-item { display: flex; flex-direction: column; align-items: center; padding: 0 40px; border-right: 1px solid rgba(255,255,255,0.08); }
-.stat-item:last-child { border-right: none; }
-.stat-num { font-size: 24px; font-weight: 900; color: var(--ac); letter-spacing: -0.01em; line-height: 1.2; }
-.stat-label { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; margin-top: 4px; }
+/* ── Stats Overlay (overlap hero bottom) ── */
+.stats-overlay { position: relative; margin: -86px auto 0; max-width: var(--max); min-width: var(--min); padding: 0 var(--side); z-index: 5; }
+.stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.stat-card { background: rgba(13,26,58,0.62); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.10); border-radius: 18px; padding: 28px 30px; transition: transform 0.25s, background 0.25s, border-color 0.25s; }
+.stat-card:hover { background: rgba(13,26,58,0.82); border-color: rgba(79,142,247,0.35); transform: translateY(-3px); }
+.stat-card-num { font-size: 40px; font-weight: 900; color: #fff; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 10px; }
+.stat-card-label { font-size: 15px; color: rgba(255,255,255,0.58); letter-spacing: 0.01em; font-weight: 400; }
+
+/* ── SOC Feature Section (통합 보안 관제) ── */
+.soc-feat { background: var(--bg); padding: 110px 0; position: relative; overflow: hidden; }
+.soc-feat::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(79,142,247,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(79,142,247,0.04) 1px, transparent 1px); background-size: 72px 72px; pointer-events: none; }
+.soc-feat::after { content: ''; position: absolute; right: -10%; top: -20%; width: 50%; height: 120%; border-radius: 50%; background: radial-gradient(ellipse, rgba(32,64,154,0.20) 0%, transparent 65%); pointer-events: none; }
+.soc-feat .inner { position: relative; z-index: 1; }
+.soc-feat-head { text-align: center; margin-bottom: 28px; }
+.soc-feat-eyebrow { font-size: 15px; color: var(--ac); letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; }
+.soc-feat-title { font-size: 38px; font-weight: 800; color: #fff; letter-spacing: -0.01em; line-height: 1.3; }
+.soc-feat-desc { text-align: center; max-width: 720px; margin: 0 auto 64px; font-size: 16px; line-height: 1.85; color: rgba(255,255,255,0.55); font-weight: 300; word-break: keep-all; }
+.soc-process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.soc-step { background: rgba(255,255,255,0.035); border: 1px solid var(--bd); border-radius: 12px; padding: 32px 28px; transition: transform 0.25s, border-color 0.25s, background 0.25s; }
+.soc-step:hover { transform: translateY(-4px); border-color: var(--ac); background: rgba(79,142,247,0.06); }
+.soc-step-num { font-size: 13px; letter-spacing: 0.22em; color: var(--ac); font-weight: 700; margin-bottom: 18px; }
+.soc-step-icon { width: 48px; height: 48px; border-radius: 10px; background: rgba(79,142,247,0.12); border: 1px solid var(--bd); display: flex; align-items: center; justify-content: center; color: var(--ac); font-size: 22px; margin-bottom: 20px; }
+.soc-step-title { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 12px; letter-spacing: -0.01em; }
+.soc-step-desc { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.5); word-break: keep-all; }
+
+/* ── Biz Portfolio Section (사업분야) ── */
+.biz { background: var(--lt2); padding: 110px 0; }
+.biz-head { text-align: center; margin-bottom: 56px; }
+.biz-eyebrow { font-size: 15px; color: var(--pr); letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; }
+.biz-title { font-size: 38px; font-weight: 800; color: var(--txt); letter-spacing: -0.01em; line-height: 1.3; margin-bottom: 14px; }
+.biz-desc { font-size: 16px; line-height: 1.85; color: var(--mut); max-width: 720px; margin: 0 auto; word-break: keep-all; }
+.biz-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.biz-card { background: #fff; border: 1px solid var(--lbd); border-radius: 10px; padding: 32px 28px; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; }
+.biz-card:hover { transform: translateY(-4px); box-shadow: 0 14px 38px rgba(32,64,154,0.10); border-color: rgba(32,64,154,0.28); }
+.biz-card-icon { width: 50px; height: 50px; border-radius: 10px; background: var(--lt); color: var(--pr); display: flex; align-items: center; justify-content: center; font-size: 23px; margin-bottom: 20px; }
+.biz-card-title { font-size: 18px; font-weight: 800; color: var(--txt); margin-bottom: 10px; letter-spacing: -0.01em; }
+.biz-card-tag { font-size: 12px; color: var(--pr); letter-spacing: 0.14em; font-weight: 700; margin-bottom: 8px; opacity: 0.6; }
+.biz-card-desc { font-size: 14px; line-height: 1.75; color: var(--mut); word-break: keep-all; }
+
+/* ── Trust Section (신뢰자료) ── */
+.trust { background: linear-gradient(135deg, #080e1f 0%, #0d1a3a 55%, #0a1f50 100%); padding: 110px 0; position: relative; overflow: hidden; }
+.trust::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(79,142,247,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(79,142,247,0.04) 1px, transparent 1px); background-size: 72px 72px; pointer-events: none; }
+.trust::after { content: ''; position: absolute; left: -5%; bottom: -20%; width: 40%; height: 100%; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,198,255,0.06) 0%, transparent 65%); pointer-events: none; }
+.trust .inner { position: relative; z-index: 1; }
+.trust-head { text-align: center; margin-bottom: 56px; }
+.trust-eyebrow { font-size: 15px; color: var(--ac); letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; }
+.trust-title { font-size: 38px; font-weight: 800; color: #fff; letter-spacing: -0.01em; line-height: 1.3; }
+.trust-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+.trust-pillar { background: rgba(13,26,58,0.45); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--bd); border-radius: 12px; padding: 32px 26px; transition: transform 0.25s, border-color 0.25s, background 0.25s; }
+.trust-pillar:hover { transform: translateY(-4px); border-color: var(--ac); background: rgba(13,26,58,0.62); }
+.trust-pillar-icon { width: 52px; height: 52px; border-radius: 10px; background: rgba(79,142,247,0.14); color: var(--ac); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 22px; }
+.trust-pillar-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 14px; letter-spacing: -0.01em; }
+.trust-pillar-list { font-size: 14px; line-height: 1.85; color: rgba(255,255,255,0.58); word-break: keep-all; }
+.trust-pillar-list strong { color: var(--ac); font-weight: 600; }
+
+/* ── Compensate Services for the overlapping stats above ── */
+.services { padding: 110px 0 48px !important; }
+
+@media (max-width: 1600px) { .stat-card { padding: 24px 26px; } .stat-card-num { font-size: 36px; } .soc-feat-title, .biz-title, .trust-title { font-size: 34px; } }
+@media (max-width: 1400px) { .stats-grid { gap: 12px; } .stat-card { padding: 22px 22px; border-radius: 16px; } .stat-card-num { font-size: 32px; } .stat-card-label { font-size: 14px; } .soc-feat-title, .biz-title, .trust-title { font-size: 30px; } .biz-grid, .trust-grid, .soc-process { gap: 14px; } .biz-card, .trust-pillar, .soc-step { padding: 26px 22px; } }
 
 </style>
 </head>
@@ -250,14 +303,14 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   </div>
 </section>
 
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat-item"><div class="stat-num">2008</div><div class="stat-label">SINCE</div></div>
-    <div class="stat-item"><div class="stat-num">A0</div><div class="stat-label">신용평가 등급</div></div>
-    <div class="stat-item"><div class="stat-num">24×365</div><div class="stat-label">보안관제 운영</div></div>
-    <div class="stat-item"><div class="stat-num">80%+</div><div class="stat-label">기술 엔지니어 비율</div></div>
-    <div class="stat-item"><div class="stat-num">Global</div><div class="stat-label">해외 지사 · 파트너망</div></div>
+<!-- STATS OVERLAY (overlapping hero bottom) -->
+<div class="stats-overlay">
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-card-num">2008</div><div class="stat-card-label">설립</div></div>
+    <div class="stat-card"><div class="stat-card-num">A0</div><div class="stat-card-label">신용평가 등급</div></div>
+    <div class="stat-card"><div class="stat-card-num">24×365</div><div class="stat-card-label">보안관제 운영</div></div>
+    <div class="stat-card"><div class="stat-card-num">80%+</div><div class="stat-card-label">기술 엔지니어 비율</div></div>
+    <div class="stat-card"><div class="stat-card-num">Global</div><div class="stat-card-label">해외 지사 · 파트너망</div></div>
   </div>
 </div>
 
@@ -375,6 +428,141 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
   </div>
 </section>
 </div>
+
+<!-- INTEGRATED SECURITY OPERATION -->
+<section class="soc-feat">
+  <div class="inner">
+    <div class="soc-feat-head">
+      <div class="soc-feat-eyebrow">Integrated Security Operation</div>
+      <div class="soc-feat-title">24×365 통합 보안 관제 체계</div>
+    </div>
+    <p class="soc-feat-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. CMT EYES 관제 플랫폼이 정보수집부터 대응·보고까지 전 단계를 자동화·체계화합니다.</p>
+    <div class="soc-process">
+      <div class="soc-step">
+        <div class="soc-step-num">STEP 01</div>
+        <div class="soc-step-icon"><i class="ti ti-radar"></i></div>
+        <div class="soc-step-title">정보수집</div>
+        <div class="soc-step-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.</div>
+      </div>
+      <div class="soc-step">
+        <div class="soc-step-num">STEP 02</div>
+        <div class="soc-step-icon"><i class="ti ti-chart-line"></i></div>
+        <div class="soc-step-title">모니터링 · 분석</div>
+        <div class="soc-step-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</div>
+      </div>
+      <div class="soc-step">
+        <div class="soc-step-num">STEP 03</div>
+        <div class="soc-step-icon"><i class="ti ti-shield-bolt"></i></div>
+        <div class="soc-step-title">대응조치</div>
+        <div class="soc-step-desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</div>
+      </div>
+      <div class="soc-step">
+        <div class="soc-step-num">STEP 04</div>
+        <div class="soc-step-icon"><i class="ti ti-clipboard-data"></i></div>
+        <div class="soc-step-title">보고</div>
+        <div class="soc-step-desc">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS PORTFOLIO -->
+<section class="biz">
+  <div class="inner">
+    <div class="biz-head">
+      <div class="biz-eyebrow">Business Portfolio</div>
+      <div class="biz-title">고객 문제 해결을 위한 서비스 포트폴리오</div>
+      <p class="biz-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 네트워크부터 시스템·보안·OT까지 통합된 서비스 포트폴리오를 제공합니다.</p>
+    </div>
+    <div class="biz-grid">
+      <div class="biz-card">
+        <div class="biz-card-icon"><i class="ti ti-shield-lock"></i></div>
+        <div class="biz-card-tag">01 · INTEGRATION</div>
+        <div class="biz-card-title">Security Integration</div>
+        <div class="biz-card-desc">네트워크 보안, 시스템 보안, 보안장비 구축 및 통합</div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-card-icon"><i class="ti ti-network"></i></div>
+        <div class="biz-card-tag">02 · INTEGRATION</div>
+        <div class="biz-card-title">Network Integration</div>
+        <div class="biz-card-desc">네트워크 구축·최적화, 스위치/라우터/무선 인프라 구성</div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-card-icon"><i class="ti ti-server-2"></i></div>
+        <div class="biz-card-tag">03 · INTEGRATION</div>
+        <div class="biz-card-title">System Integration</div>
+        <div class="biz-card-desc">업무분석·설계·프로젝트 관리·테스트·구축 및 유지보수</div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-card-icon"><i class="ti ti-tools"></i></div>
+        <div class="biz-card-tag">04 · OPERATION</div>
+        <div class="biz-card-title">통합 유지보수</div>
+        <div class="biz-card-desc">보안솔루션·네트워크·시스템 통합 유지보수와 기술지원</div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-card-icon"><i class="ti ti-clipboard-check"></i></div>
+        <div class="biz-card-tag">05 · CONSULTING</div>
+        <div class="biz-card-title">정보보호 컨설팅</div>
+        <div class="biz-card-desc">ISMS·전자금융감독규정·기반시설·취약점 진단·모의해킹</div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-card-icon"><i class="ti ti-cloud-cog"></i></div>
+        <div class="biz-card-tag">06 · CONSULTING</div>
+        <div class="biz-card-title">클라우드 컨설팅 · MSP</div>
+        <div class="biz-card-desc">클라우드 구축·마이그레이션·운영 고도화 및 MSP 서비스</div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-card-icon"><i class="ti ti-building-warehouse"></i></div>
+        <div class="biz-card-tag">07 · CONSULTING</div>
+        <div class="biz-card-title">IDC 컨설팅</div>
+        <div class="biz-card-desc">데이터센터 설계·전기·쿨링·방재·보안·통합배선 구축</div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-card-icon"><i class="ti ti-cpu"></i></div>
+        <div class="biz-card-tag">08 · SECURITY</div>
+        <div class="biz-card-title">OT Security</div>
+        <div class="biz-card-desc">제조·산업제어 환경 보안, Fortinet OT, 백업·복구 연계</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST FOUNDATION -->
+<section class="trust">
+  <div class="inner">
+    <div class="trust-head">
+      <div class="trust-eyebrow">Trust Foundation</div>
+      <div class="trust-title">검증된 신뢰의 기반</div>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-pillar">
+        <div class="trust-pillar-icon"><i class="ti ti-certificate"></i></div>
+        <div class="trust-pillar-title">인증 · 자격</div>
+        <div class="trust-pillar-list"><strong>ISO 27001</strong> · <strong>ISO 9001</strong> · 보안관제 전문기업 · 벤처기업 · 기업부설연구소 · Main-Biz</div>
+      </div>
+      <div class="trust-pillar">
+        <div class="trust-pillar-icon"><i class="ti ti-coin"></i></div>
+        <div class="trust-pillar-title">재무 · 신용</div>
+        <div class="trust-pillar-list">신용평가 <strong>A0</strong> 등급 · 안정적 재무구조 · Lorem ipsum dolor sit amet</div>
+      </div>
+      <div class="trust-pillar">
+        <div class="trust-pillar-icon"><i class="ti ti-users-group"></i></div>
+        <div class="trust-pillar-title">조직 · 인력</div>
+        <div class="trust-pillar-list">전문 기술인력 <strong>80% 이상</strong> · Network &amp; Security · Consulting · 보안관제 · 개발 조직</div>
+      </div>
+      <div class="trust-pillar">
+        <div class="trust-pillar-icon"><i class="ti ti-map-pin"></i></div>
+        <div class="trust-pillar-title">전국 네트워크</div>
+        <div class="trust-pillar-list">서울 본사 · <strong>대구 · 울산 · 광주 · 부산</strong> 전국 지원망</div>
+      </div>
+      <div class="trust-pillar">
+        <div class="trust-pillar-icon"><i class="ti ti-world"></i></div>
+        <div class="trust-pillar-title">해외 거점</div>
+        <div class="trust-pillar-list"><strong>독일 · 베트남 · 헝가리</strong> 해외 법인 · 글로벌 파트너 네트워크</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- PARTNERS -->
 <section class="partners">
